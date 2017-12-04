@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         tvTitle = findViewById(R.id.tv_toolbar_title)
         setSupportActionBar(myToolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-        tvTitle.text = "Hellow World"
+        tvTitle.text = getString(R.string.Hello)
     }
     fun initFragment() {
         supportFragmentManager.beginTransaction()
