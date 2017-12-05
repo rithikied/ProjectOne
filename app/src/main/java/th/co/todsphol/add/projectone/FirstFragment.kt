@@ -17,9 +17,9 @@ class FirstFragment : Fragment() {
 
     companion object {
         fun newInstance() : Fragment {
-            val bundel = Bundle()
+            val bundle = Bundle()
             val fragment = FirstFragment()
-            fragment.arguments = bundel
+            fragment.arguments = bundle
             return fragment
         }
     }

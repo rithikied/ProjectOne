@@ -16,14 +16,14 @@ class MainActivity : AppCompatActivity() {
         setToolbar()
 
     }
-    fun setToolbar() {
+    private fun setToolbar() {
         myToolbar = findViewById(R.id.toolbar)
         tvTitle = findViewById(R.id.tv_toolbar_title)
         setSupportActionBar(myToolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         tvTitle.text = getString(R.string.Hello)
     }
-    fun initFragment() {
+    private fun initFragment() {
         supportFragmentManager.beginTransaction()
                 .replace(R.id.container, FirstFragment.newInstance())
                 .commit()
