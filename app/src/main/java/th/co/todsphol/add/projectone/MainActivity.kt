@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import android.support.v7.widget.Toolbar
+import android.view.MenuItem
 
 class MainActivity : AppCompatActivity() {
     private lateinit var myToolbar : Toolbar
@@ -27,5 +28,12 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
                 .replace(R.id.container, FirstFragment.newInstance())
                 .commit()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            android.R.id.home -> onBackPressed()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
