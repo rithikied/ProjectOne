@@ -1,10 +1,12 @@
-package th.co.todsphol.add.projectone
+package th.co.todsphol.add.projectone.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
+import th.co.todsphol.add.projectone.fragment.FirstFragment
+import th.co.todsphol.add.projectone.R
 
 class MainActivity : AppCompatActivity() {
     private lateinit var myToolbar : Toolbar
