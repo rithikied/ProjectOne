@@ -16,11 +16,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initFragment()
+        setToolbar()
 
     }
     private fun setToolbar() {
         myToolbar = findViewById(R.id.toolbar)
-        //tvTitle = findViewById(R.id.tv_toolbar_title)
+        tvTitle = findViewById(R.id.tv_toolbar_title)
         setSupportActionBar(myToolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         tvTitle.text = getString(R.string.Hello)
