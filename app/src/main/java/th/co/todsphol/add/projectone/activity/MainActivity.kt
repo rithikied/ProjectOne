@@ -1,22 +1,24 @@
 package th.co.todsphol.add.projectone.activity
 
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
+import android.widget.Button
 import th.co.todsphol.add.projectone.fragment.FirstFragment
 import th.co.todsphol.add.projectone.R
 
 class MainActivity : AppCompatActivity() {
     private lateinit var myToolbar : Toolbar
     private lateinit var tvTitle : TextView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initFragment()
         setToolbar()
+
 
     }
     private fun setToolbar() {
@@ -26,12 +28,12 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         tvTitle.text = getString(R.string.Hello)
     }
-    private fun initFragment() {
+    fun initFragment() {
         supportFragmentManager.beginTransaction()
                 .replace(R.id.container, FirstFragment.newInstance())
                 .commit()
     }
-    private fun changeFragment(fragment: FirstFragment) {
+     fun changeFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
                 .replace(R.id.container, fragment)
                 .addToBackStack(null)
