@@ -31,6 +31,12 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.container, FirstFragment.newInstance())
                 .commit()
     }
+    private fun changeFragment(fragment: FirstFragment) {
+        supportFragmentManager.beginTransaction()
+                .replace(R.id.container, fragment)
+                .addToBackStack(null)
+                .commit()
+    }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
