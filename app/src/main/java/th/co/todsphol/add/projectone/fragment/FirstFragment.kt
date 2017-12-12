@@ -2,7 +2,6 @@ package th.co.todsphol.add.projectone.fragment
 
 
 import android.os.Bundle
-import android.support.annotation.NonNull
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -20,6 +19,7 @@ class FirstFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.fragment_first, container, false)
         ButterKnife.bind(this,view)
+        getMainActivity().supportActionBar?.hide()
         btnNext.setOnClickListener {
             getMainActivity().changeFragment(SecondFragment.newInstance())
         }

@@ -3,7 +3,6 @@ package th.co.todsphol.add.projectone.activity
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.annotation.NonNull
 import android.widget.TextView
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
@@ -27,6 +26,8 @@ class MainActivity : AppCompatActivity() {
     }
     private fun setToolbar() {
         setSupportActionBar(myToolbar)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         tvTitle.text = getString(R.string.Hello)
     }
