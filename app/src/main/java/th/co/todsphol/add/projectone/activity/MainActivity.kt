@@ -3,26 +3,29 @@ package th.co.todsphol.add.projectone.activity
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.annotation.NonNull
 import android.widget.TextView
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
+import butterknife.BindView
+import butterknife.ButterKnife
 import th.co.todsphol.add.projectone.fragment.FirstFragment
 import th.co.todsphol.add.projectone.R
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var myToolbar : Toolbar
-    private lateinit var tvTitle : TextView
+    @BindView(R.id.toolbar) lateinit var myToolbar : Toolbar
+    @BindView(R.id.tv_toolbar_title) lateinit var tvTitle : TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        ButterKnife.bind(this)
         initFragment()
         setToolbar()
 
 
     }
     private fun setToolbar() {
-        myToolbar = findViewById(R.id.toolbar)
-        tvTitle = findViewById(R.id.tv_toolbar_title)
         setSupportActionBar(myToolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         tvTitle.text = getString(R.string.Hello)

@@ -2,29 +2,29 @@ package th.co.todsphol.add.projectone.fragment
 
 
 import android.os.Bundle
+import android.support.annotation.NonNull
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import butterknife.BindView
+import butterknife.ButterKnife
 import th.co.todsphol.add.projectone.R
 import th.co.todsphol.add.projectone.activity.MainActivity
 
 class FirstFragment : Fragment() {
 
-
+    @BindView(R.id.btn_next) lateinit var btnNext : Button
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.fragment_first, container, false)
-        initButton(view)
-        return view
-
-    }
-    private fun initButton(view: View) {
-        val btn = view.findViewById<Button>(R.id.btn_next)
-        btn.setOnClickListener {
+        ButterKnife.bind(this,view)
+        btnNext.setOnClickListener {
             getMainActivity().changeFragment(SecondFragment.newInstance())
         }
+        return view
+
     }
 
     private fun getMainActivity() : MainActivity {
