@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.TextView
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
-import android.widget.Button
 import th.co.todsphol.add.projectone.fragment.FirstFragment
 import th.co.todsphol.add.projectone.R
 
