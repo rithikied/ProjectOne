@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         tvTitle.text = getString(R.string.Hello)
     }
-    fun initFragment() {
+    private fun initFragment() {
         supportFragmentManager.beginTransaction()
                 .replace(R.id.container, FirstFragment.newInstance())
                 .commit()

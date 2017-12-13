@@ -19,7 +19,7 @@ class SecondFragment : Fragment() {
         return view
     }
 
-    fun getMainActivity() : MainActivity {
+    private fun getMainActivity() : MainActivity {
         return activity as MainActivity
     }
 
