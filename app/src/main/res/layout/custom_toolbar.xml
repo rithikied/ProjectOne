@@ -24,7 +24,7 @@
             android:maxLines="1"
             android:textStyle="normal"
             android:textSize="22sp"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorWhite"
             tools:text="Toolbar" />
 
     </android.support.v7.widget.Toolbar>

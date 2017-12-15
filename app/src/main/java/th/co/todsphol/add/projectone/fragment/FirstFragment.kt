@@ -20,11 +20,15 @@ class FirstFragment : Fragment() {
         val view = inflater!!.inflate(R.layout.fragment_first, container, false)
         ButterKnife.bind(this,view)
         getMainActivity().supportActionBar?.hide()
+        onClickButton()
+        return view
+
+    }
+
+    private fun onClickButton() {
         btnNext.setOnClickListener {
             getMainActivity().changeFragment(SecondFragment.newInstance())
         }
-        return view
-
     }
 
     private fun getMainActivity() : MainActivity {
