@@ -11,4 +11,7 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorLightBlue">#40C4FF</color>
     <color name="colorGrayishBrown">#4A4A4A</color>
+    <color name="colorWarmGrey">#9B9B9B</color>
+    <color name="warmGrey">#9B9B9B</color>
+    <color name="colorBlueGray">#263238</color>
 </resources>

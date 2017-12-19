@@ -14,7 +14,7 @@
         <item name="android:layout_marginTop">@dimen/dp4</item>
         <item name="android:layout_marginLeft">@dimen/dp8</item>
         <item name="android:layout_marginRight">@dimen/dp8</item>
-        <item name="android:background">@drawable/c_selector_rectangle</item>
+        <item name="android:background">@drawable/s_selector_rectangle</item>
         <item name="android:textColor">@color/z_states_text_view_text_color</item>
     </style>
     <style name="Button" parent="TextView">
