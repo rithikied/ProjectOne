@@ -17,5 +17,10 @@
         style="@style/ButtonGreen"
         android:text="Next Page"
         />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/TestEdittext"
+        />
 
 </RelativeLayout>
