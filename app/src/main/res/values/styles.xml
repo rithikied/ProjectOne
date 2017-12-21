@@ -32,7 +32,7 @@
         <item name="android:maxLines">1</item>
         <item name="android:maxLength">25</item>
     </style>
-    <style name="TestEdittext" parent="EditText">
+    <style name="TestEditText" parent="EditText">
         <item name="android:inputType">text</item>
         <item name="android:maxLines">1</item>
         <item name="android:ellipsize">end</item>
