@@ -22,7 +22,7 @@
     </style>
     <style name="ButtonBase" parent="Button">
         <item name="android:textSize">@dimen/textSize</item>
-        <item name="android:foreground">selectableItemBackground</item>
+        <item name="android:foreground">?selectableItemBackground</item>
     </style>
     <style name="ButtonGreen" parent="ButtonBase">
         <item name="android:background">@drawable/s_button_green</item>
