@@ -22,6 +22,8 @@
         android:layout_height="wrap_content"
         style="@style/TestEditText"
         android:hint="Yourname"
+        android:layout_above="@+id/btn_next"
+        android:layout_marginBottom="@dimen/dp8"
         />
 
 </RelativeLayout>
