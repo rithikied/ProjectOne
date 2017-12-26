@@ -37,7 +37,6 @@
         android:layout_toEndOf="@+id/tv_name"
         style="@style/EditText"
         android:hint="Your name"
-        android:textSize="@dimen/textSize"
         android:layout_alignRight="@+id/btn_next"
         android:layout_alignEnd="@+id/btn_next"
         android:layout_marginTop="@dimen/dp12"
