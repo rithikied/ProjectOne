@@ -28,6 +28,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginEnd="20dp"
         android:textSize="@dimen/textSize"
+        android:textColor="@color/colorBlueGray"
         />
     <EditText
         android:id="@+id/edt_name"
@@ -51,20 +52,21 @@
         android:layout_alignLeft="@+id/tv_name"
         android:layout_alignStart="@+id/tv_name"
         android:text="Surname"
-        android:layout_marginTop="30dp"
-        android:textSize="@dimen/textSize" />
+        android:layout_marginTop="35dp"
+        android:textSize="@dimen/textSize"
+        android:textColor="@color/colorBlueGray"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/tv_surname"
         android:layout_toEndOf="@+id/tv_surname"
         android:layout_below="@+id/edt_name"
-        android:layout_alignLeft="@+id/edt_name"
-        android:layout_alignStart="@+id/edt_name"
         android:layout_alignEnd="@+id/btn_next"
         android:layout_alignRight="@+id/btn_next"
         style="@style/EditText"
         android:layout_marginTop="@dimen/dp8"
+        android:layout_marginLeft="@dimen/dp8"
+        android:layout_marginStart="@dimen/dp8"
         android:hint="Your surname"
         />
 
