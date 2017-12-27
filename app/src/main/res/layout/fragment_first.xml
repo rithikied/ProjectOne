@@ -122,4 +122,31 @@
         android:layout_alignEnd="@+id/edt_age"
         android:hint="Your Brand"
         />
+    <TextView
+        android:id="@+id/tv_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Color"
+        android:layout_below="@+id/tv_brand"
+        android:layout_alignLeft="@+id/tv_brand"
+        android:layout_alignStart="@+id/tv_brand"
+        android:textSize="@dimen/textSize"
+        android:textColor="@color/colorBlueGray"
+        android:layout_marginTop="35dp"
+        />
+    <EditText
+        android:id="@+id/edt_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edt_brand"
+        android:layout_toRightOf="@+id/tv_color"
+        android:layout_toEndOf="@+id/tv_color"
+        android:layout_alignLeft="@+id/edt_brand"
+        android:layout_alignStart="@+id/edt_brand"
+        android:layout_alignEnd="@+id/edt_brand"
+        android:layout_alignRight="@+id/edt_brand"
+        style="@style/EditText"
+        android:hint="Your Color"
+
+        />
 </RelativeLayout>
