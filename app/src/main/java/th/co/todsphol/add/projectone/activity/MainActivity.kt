@@ -8,8 +8,8 @@ import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import butterknife.BindView
 import butterknife.ButterKnife
-import th.co.todsphol.add.projectone.fragment.FirstFragment
 import th.co.todsphol.add.projectone.R
+import th.co.todsphol.add.projectone.fragment.FirstFragment
 
 class MainActivity : AppCompatActivity() {
     @BindView(R.id.toolbar) lateinit var myToolbar : Toolbar

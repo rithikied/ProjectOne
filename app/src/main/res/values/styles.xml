@@ -25,7 +25,7 @@
         <item name="android:foreground">?selectableItemBackground</item>
     </style>
     <style name="ButtonGreen" parent="ButtonBase">
-        <item name="android:background">@drawable/s_button_green</item>
+        <item name="android:background">@drawable/s_bg_button_green</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
     <style name="EditText" parent="TextView">
