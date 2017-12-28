@@ -14,7 +14,7 @@ import th.co.todsphol.add.projectone.activity.MainActivity
 
 class FirstFragment : Fragment() {
 
-    @BindView(R.id.btn_next) lateinit var btnNext : Button
+    @BindView(R.id.btn_register) lateinit var btnNext : Button
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.fragment_first, container, false)
