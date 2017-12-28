@@ -87,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/EditText"
-        android:layout_below="@id/edt_surname"
+        android:layout_below="@+id/edt_surname"
         android:layout_toRightOf="@+id/tv_age"
         android:layout_toEndOf="@+id/tv_age"
         android:layout_alignRight="@+id/btn_next"
