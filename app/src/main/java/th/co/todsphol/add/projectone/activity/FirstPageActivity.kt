@@ -17,14 +17,19 @@ class FirstPageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         ButterKnife.bind(this)
-        newRegister.setOnClickListener {
-            val newMember = Intent(this, NewRegisterActivity::class.java)
-            newMember.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(newMember)
-            overridePendingTransition(android.R.anim.fade_in , android.R.anim.fade_out)
-        }
+        onClickNewRegister()
+
 
     }
+
+    private fun onClickNewRegister() {
+        newRegister.setOnClickListener {
+            val newMember = Intent(this, NewRegisterActivity::class.java)
+            startActivity(newMember)
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        }
+    }
+
     private fun initFragment() {
         supportFragmentManager.beginTransaction()
                 .replace(R.id.container, FirstFragment.newInstance())
