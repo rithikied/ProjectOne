@@ -9,7 +9,7 @@
             <solid android:color="@android:color/white" />
 
             <stroke
-                android:width="3dp"
+                android:width="4dp"
                 android:color="@color/colorBlueGray" />
 
             <padding
