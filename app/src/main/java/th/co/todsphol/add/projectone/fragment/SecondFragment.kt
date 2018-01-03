@@ -10,7 +10,7 @@ import android.widget.Button
 import butterknife.BindView
 import butterknife.ButterKnife
 import th.co.todsphol.add.projectone.R
-import th.co.todsphol.add.projectone.activity.MainActivity
+import th.co.todsphol.add.projectone.activity.FirstPageActivity
 
 class SecondFragment : Fragment() {
 
@@ -31,8 +31,8 @@ class SecondFragment : Fragment() {
         }
     }
 
-    private fun getMainActivity() : MainActivity {
-        return activity as MainActivity
+    private fun getMainActivity() : FirstPageActivity {
+        return activity as FirstPageActivity
     }
     companion object {
         fun newInstance() : Fragment {

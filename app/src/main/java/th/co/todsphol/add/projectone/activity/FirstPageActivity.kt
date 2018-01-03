@@ -11,7 +11,7 @@ import butterknife.ButterKnife
 import th.co.todsphol.add.projectone.R
 import th.co.todsphol.add.projectone.fragment.FirstFragment
 
-class MainActivity : AppCompatActivity() {
+class FirstPageActivity : AppCompatActivity() {
     @BindView(R.id.toolbar) lateinit var myToolbar : Toolbar
     @BindView(R.id.tv_toolbar_title) lateinit var tvTitle : TextView
 
