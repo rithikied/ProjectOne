@@ -18,7 +18,7 @@ class FirstPageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         ButterKnife.bind(this)
         onClickNewRegister()
-
+//        Glide.with(this).load(drawable.shoot).crossFade().into(vImageBackground)
 
     }
 
