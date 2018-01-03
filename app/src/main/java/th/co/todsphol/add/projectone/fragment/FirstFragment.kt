@@ -18,17 +18,21 @@ import th.co.todsphol.add.projectone.activity.NewRegisterActivity
 
 class FirstFragment : Fragment() {
 
-    @Nullable @BindView(R.id.edt_phone_number) lateinit var edtPhone: EditText
-    @Nullable @BindView(R.id.edt_password) lateinit var edtPassword: EditText
-    @Nullable @BindView(R.id.btn_new_register) lateinit var newRegister: Button
-    @Nullable @BindView(R.id.btn_register) lateinit var login: Button
+    @Nullable
+    @BindView(R.id.edt_phone_number) lateinit var edtPhone: EditText
+    @Nullable
+    @BindView(R.id.edt_password) lateinit var edtPassword: EditText
+    @Nullable
+    @BindView(R.id.btn_new_register) lateinit var newRegister: Button
+    @Nullable
+    @BindView(R.id.btn_register) lateinit var login: Button
+
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.fragment_first, container, false)
         ButterKnife.bind(this, view)
         getMainActivity().supportActionBar?.hide()
         onClickNewRegister()
-
         return view
     }
 
@@ -38,6 +42,13 @@ class FirstFragment : Fragment() {
         }
     }
 
+//    fun onClickLogin() {
+//        login.setOnClickListener({
+//            val loginIntent = Intent(context, NewRegisterActivity::class.java)
+//            loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+//            startActivity(loginIntent)
+//        })
+//    }
 
     private fun getMainActivity(): FirstPageActivity {
         return activity as FirstPageActivity
