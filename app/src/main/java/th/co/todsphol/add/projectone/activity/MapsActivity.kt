@@ -31,5 +31,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val chagwattana = LatLng(13.903890, 100.528437)
         mMap.addMarker(MarkerOptions().position(chagwattana).title("Changwattana"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(chagwattana))
+
     }
 }

@@ -151,6 +151,30 @@
                 android:textSize="@dimen/textSize"
                 android:textColor="@color/colorBlueGray"
                 />
+            <TextView
+                android:id="@+id/tv_show_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="สถานะ :"
+                android:layout_below="@+id/tv_show_licence_plate"
+                android:layout_alignLeft="@+id/tv_show_licence_plate"
+                android:layout_alignStart="@+id/tv_show_licence_plate"
+                android:textSize="@dimen/textSize"
+                android:textColor="@color/colorBlueGray"
+                android:layout_marginTop="@dimen/dp8"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ปลอดภัย"
+                android:layout_alignBottom="@+id/tv_show_status"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="@dimen/dp8"
+                android:layout_marginEnd="@dimen/dp8"
+                android:textColor="@color/colorBlueGray"
+                android:textSize="@dimen/textSize"
+                />
         </RelativeLayout>
 
     </LinearLayout>
