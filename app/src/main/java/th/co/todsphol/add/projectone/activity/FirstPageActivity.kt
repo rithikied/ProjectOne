@@ -12,14 +12,23 @@ import th.co.todsphol.add.projectone.R
 import th.co.todsphol.add.projectone.fragment.FirstFragment
 
 class FirstPageActivity : AppCompatActivity() {
+    @BindView(R.id.btn_login) lateinit var login : Button
     @BindView(R.id.btn_new_register) lateinit var newRegister : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         ButterKnife.bind(this)
         onClickNewRegister()
+        onClickLogin()
 //        Glide.with(this).load(drawable.shoot).crossFade().into(vImageBackground)
+    }
 
+    private fun onClickLogin() {
+        login.setOnClickListener {
+            val homeIntent = Intent(this, Home::class.java)
+            startActivity(homeIntent)
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        }
     }
 
     private fun onClickNewRegister() {
