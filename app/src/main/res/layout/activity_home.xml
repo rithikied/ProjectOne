@@ -1,9 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.Home">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="4">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2.5"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5">
+
+            <TextView
+                android:id="@+id/tv_show_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ชื่อเจ้าของยานพาหนะ :"
+                android:layout_marginLeft="@dimen/dp8"
+                android:layout_marginRight="@dimen/dp8"
+                android:textSize="@dimen/textSize"
+                android:textColor="@color/colorBlueGray"
+                />
+            <TextView
+                android:id="@+id/tv_name_client"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:layout_toLeftOf="@+id/tv_surname_client"
+                android:layout_toStartOf="@+id/tv_surname_client"
+                android:layout_marginRight="@dimen/dp8"
+                android:layout_marginEnd="@dimen/dp8"
+                android:textSize="@dimen/textSize"
+                android:textColor="@color/colorBlueGray"
+                />
+            <TextView
+                android:id="@+id/tv_surname_client"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Surname"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="@dimen/dp8"
+                android:layout_marginLeft="@dimen/dp8"
+                android:textSize="@dimen/textSize"
+                android:textColor="@color/colorBlueGray"
+                />
+            <TextView
+                android:id="@+id/tv_show_brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ยี่ห้อยานพาหนะ :"
+                android:layout_below="@+id/tv_show_name"
+                android:layout_alignLeft="@+id/tv_show_name"
+                android:layout_alignStart="@+id/tv_show_name"
+                android:textSize="@dimen/textSize"
+                android:textColor="@color/colorBlueGray"
+                android:layout_marginTop="@dimen/dp8"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Brand"
+                android:layout_alignBottom="@+id/tv_show_brand"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="@dimen/dp8"
+                android:layout_marginEnd="@dimen/dp8"
+                android:textSize="@dimen/textSize"
+                android:textColor="@color/colorBlueGray"
+                />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
