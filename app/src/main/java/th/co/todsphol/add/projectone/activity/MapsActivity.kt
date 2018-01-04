@@ -1,5 +1,6 @@
 package th.co.todsphol.add.projectone.activity
 
+import android.location.Location
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 
@@ -15,10 +16,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -26,11 +27,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-
-        // Add a marker in Sydney and move the camera
+        mMap.uiSettings.isTiltGesturesEnabled = true
+        mMap.uiSettings.isRotateGesturesEnabled = true
+        mMap.uiSettings.isScrollGesturesEnabled = true
+        mMap.uiSettings.isZoomControlsEnabled = true
+        mMap.uiSettings.isMyLocationButtonEnabled = true
         val chagwattana = LatLng(13.903890, 100.528437)
-        mMap.addMarker(MarkerOptions().position(chagwattana).title("Changwattana"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(chagwattana))
-
+//        mMap.addMarker(MarkerOptions().position(chagwattana).title("Changwattana"))
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(chagwattana))
     }
+
 }
