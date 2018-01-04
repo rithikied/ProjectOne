@@ -1,18 +1,27 @@
 package th.co.todsphol.add.projectone.activity
 
-import android.location.Location
+
+import android.content.Intent
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.annotation.Nullable
+import android.widget.Button
+import butterknife.BindView
 
-import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import th.co.todsphol.add.projectone.R
+import android.R.attr.button
+import android.annotation.SuppressLint
+import android.view.View
+
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+    @Nullable
+    @BindView(R.id.btn_call) lateinit var phoneCall : Button
 
     private lateinit var mMap: GoogleMap
 
@@ -23,6 +32,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
     }
 
     override fun onMapReady(googleMap: GoogleMap) {

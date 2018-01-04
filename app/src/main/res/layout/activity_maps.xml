@@ -31,25 +31,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp8"
                 android:layout_marginRight="@dimen/dp8"
+                android:layout_marginTop="@dimen/dp8"
                 android:text="ชื่อเจ้าของยานพาหนะ :"
                 android:textColor="@color/colorBlueGray"
-                android:textSize="@dimen/textSize"
-                android:layout_marginTop="@dimen/dp8"
-                />
+                android:textSize="@dimen/textSize" />
 
             <TextView
                 android:id="@+id/tv_name_client"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tv_show_name"
                 android:layout_marginEnd="@dimen/dp8"
                 android:layout_marginRight="@dimen/dp8"
                 android:layout_toLeftOf="@+id/tv_surname_client"
                 android:layout_toStartOf="@+id/tv_surname_client"
                 android:text="Name"
                 android:textColor="@color/colorBlueGray"
-                android:textSize="@dimen/textSize"
-                android:layout_alignTop="@+id/tv_show_name"
-                />
+                android:textSize="@dimen/textSize" />
 
             <TextView
                 android:id="@+id/tv_surname_client"
@@ -57,13 +55,12 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/tv_show_name"
                 android:layout_marginLeft="@dimen/dp8"
                 android:layout_marginRight="@dimen/dp8"
                 android:text="Surname"
                 android:textColor="@color/colorBlueGray"
-                android:textSize="@dimen/textSize"
-                android:layout_alignTop="@+id/tv_show_name"
-                />
+                android:textSize="@dimen/textSize" />
 
             <TextView
                 android:id="@+id/tv_show_brand"
@@ -93,87 +90,95 @@
                 android:id="@+id/tv_show_color"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="สีของยานพาหนะ :"
-                android:layout_below="@+id/tv_show_brand"
                 android:layout_alignLeft="@+id/tv_show_brand"
                 android:layout_alignStart="@+id/tv_show_brand"
+                android:layout_below="@+id/tv_show_brand"
                 android:layout_marginTop="@dimen/dp8"
+                android:text="สีของยานพาหนะ :"
                 android:textColor="@color/colorBlueGray"
-                android:textSize="@dimen/textSize"
-                />
+                android:textSize="@dimen/textSize" />
+
             <TextView
                 android:id="@+id/tv_color_client"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="เขียว"
                 android:layout_alignBottom="@+id/tv_show_color"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="@dimen/dp8"
+                android:layout_alignParentRight="true"
                 android:layout_marginEnd="@dimen/dp8"
-                android:textSize="@dimen/textSize"
+                android:layout_marginRight="@dimen/dp8"
+                android:text="เขียว"
                 android:textColor="@color/colorBlueGray"
-                />
+                android:textSize="@dimen/textSize" />
+
             <TextView
                 android:id="@+id/tv_show_licence_plate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ป้ายทะเบียนยานพหนะ :"
-                android:layout_below="@+id/tv_show_color"
                 android:layout_alignLeft="@+id/tv_show_color"
                 android:layout_alignStart="@+id/tv_show_color"
+                android:layout_below="@+id/tv_show_color"
                 android:layout_marginTop="@dimen/dp8"
+                android:text="ป้ายทะเบียนยานพหนะ :"
                 android:textColor="@color/colorBlueGray"
-                android:textSize="@dimen/textSize"
-                />
+                android:textSize="@dimen/textSize" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2345"
                 android:layout_alignBottom="@+id/tv_show_licence_plate"
+                android:layout_marginEnd="@dimen/dp8"
+                android:layout_marginRight="@dimen/dp8"
                 android:layout_toLeftOf="@+id/tv_county"
                 android:layout_toStartOf="@+id/tv_county"
-                android:layout_marginRight="@dimen/dp8"
-                android:layout_marginEnd="@dimen/dp8"
+                android:text="2345"
                 android:textColor="@color/colorBlueGray"
-                android:textSize="@dimen/textSize"
-                />
+                android:textSize="@dimen/textSize" />
+
             <TextView
                 android:id="@+id/tv_county"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="กรุงเทพมหานคร"
                 android:layout_alignBottom="@+id/tv_show_licence_plate"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="@dimen/dp8"
+                android:layout_alignParentRight="true"
                 android:layout_marginEnd="@dimen/dp8"
-                android:textSize="@dimen/textSize"
+                android:layout_marginRight="@dimen/dp8"
+                android:text="กรุงเทพมหานคร"
                 android:textColor="@color/colorBlueGray"
-                />
+                android:textSize="@dimen/textSize" />
+
             <TextView
                 android:id="@+id/tv_show_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="สถานะ :"
-                android:layout_below="@+id/tv_show_licence_plate"
                 android:layout_alignLeft="@+id/tv_show_licence_plate"
                 android:layout_alignStart="@+id/tv_show_licence_plate"
-                android:textSize="@dimen/textSize"
-                android:textColor="@color/colorBlueGray"
+                android:layout_below="@+id/tv_show_licence_plate"
                 android:layout_marginTop="@dimen/dp8"
-                />
+                android:text="สถานะ :"
+                android:textColor="@color/colorBlueGray"
+                android:textSize="@dimen/textSize" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ปลอดภัย"
                 android:layout_alignBottom="@+id/tv_show_status"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="@dimen/dp8"
+                android:layout_alignParentRight="true"
                 android:layout_marginEnd="@dimen/dp8"
+                android:layout_marginRight="@dimen/dp8"
+                android:text="ปลอดภัย"
                 android:textColor="@color/colorBlueGray"
-                android:textSize="@dimen/textSize"
+                android:textSize="@dimen/textSize" />
+            <Button
+                android:id="@+id/btn_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/dp12"
+                android:text="โทร"
                 />
         </RelativeLayout>
 
