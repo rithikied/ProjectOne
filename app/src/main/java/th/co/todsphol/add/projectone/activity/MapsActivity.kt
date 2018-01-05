@@ -17,6 +17,8 @@ import th.co.todsphol.add.projectone.R
 import android.R.attr.button
 import android.annotation.SuppressLint
 import android.view.View
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.model.MarkerOptions
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -43,8 +45,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.uiSettings.isZoomControlsEnabled = true
         mMap.uiSettings.isMyLocationButtonEnabled = true
         val chagwattana = LatLng(13.903890, 100.528437)
-//        mMap.addMarker(MarkerOptions().position(chagwattana).title("Changwattana"))
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(chagwattana))
+        mMap.addMarker(MarkerOptions().position(chagwattana).title("Changwattana"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(chagwattana))
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(15.0f))
+
     }
 
 }
