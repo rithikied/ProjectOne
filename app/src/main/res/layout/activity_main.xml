@@ -1,5 +1,4 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,29 +19,32 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <TextView
                     android:id="@+id/tv_show_text_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="เข้าสู่ระบบ"
-                    android:textSize="@dimen/textSize"
-                    android:textColor="@color/colorBlueGray"
                     android:layout_above="@+id/edt_phone_number"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="@dimen/dp20"/>
+                    android:layout_marginBottom="@dimen/dp20"
+                    android:text="เข้าสู่ระบบ"
+                    android:textColor="@color/colorBlueGray"
+                    android:textSize="@dimen/textSize" />
 
                 <EditText
                     android:id="@+id/edt_phone_number"
+                    style="@style/EditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    style="@style/EditText"
                     android:layout_marginLeft="@dimen/dp8"
                     android:layout_marginRight="@dimen/dp8"
                     android:hint="เบอร์โทรศัทพ์ของคุณ"
-                    />
+                    android:textSize="@dimen/textSize" />
+
                 <EditText
                     android:id="@+id/edt_password"
+                    style="@style/EditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/edt_phone_number"
@@ -50,8 +52,7 @@
                     android:layout_marginRight="@dimen/dp8"
                     android:layout_marginTop="@dimen/dp8"
                     android:hint="รหัสผ่านของคุณ"
-                    style="@style/EditText"
-                    />
+                    android:textSize="@dimen/textSize" />
 
 
             </RelativeLayout>
@@ -61,27 +62,27 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/btn_new_register"
+                style="@style/ButtonGreen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp12"
                 android:layout_marginLeft="@dimen/dp12"
                 android:layout_marginRight="@dimen/dp12"
-                android:layout_marginBottom="@dimen/dp12"
-                style="@style/ButtonGreen"
                 android:text="สมัครสมาชิก" />
 
             <Button
                 android:id="@+id/btn_login"
+                style="@style/ButtonGreen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp12"
                 android:layout_marginLeft="@dimen/dp12"
                 android:layout_marginRight="@dimen/dp12"
-                android:layout_marginBottom="@dimen/dp12"
-                style="@style/ButtonGreen"
                 android:text="เข้าสู่ระบบ" />
 
         </LinearLayout>
