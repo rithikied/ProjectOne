@@ -2,7 +2,6 @@ package th.co.todsphol.add.projectone.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.SyncStateContract
 import android.support.annotation.Nullable
 import android.widget.Button
 import butterknife.BindView
@@ -14,10 +13,6 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import th.co.todsphol.add.projectone.R
-
-
-
-
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
