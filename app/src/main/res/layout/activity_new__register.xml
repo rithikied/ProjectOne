@@ -120,9 +120,8 @@
                 android:textColor="@color/colorBlueGray"
                 android:textSize="@dimen/textSize" />
 
-            <EditText
-                android:id="@+id/edt_brand"
-                style="@style/EditText"
+            <Spinner
+                android:id="@+id/spinner_brand"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignEnd="@+id/edt_age"
@@ -132,7 +131,10 @@
                 android:layout_below="@+id/edt_age"
                 android:layout_toEndOf="@+id/tv_brand"
                 android:layout_toRightOf="@+id/tv_brand"
-                android:hint="Your Brand" />
+                android:entries="@array/myarray"
+                android:spinnerMode="dialog"
+
+                />
 
             <TextView
                 android:id="@+id/tv_color"
@@ -151,11 +153,11 @@
                 style="@style/EditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/edt_brand"
-                android:layout_alignLeft="@+id/edt_brand"
-                android:layout_alignRight="@+id/edt_brand"
-                android:layout_alignStart="@+id/edt_brand"
-                android:layout_below="@+id/edt_brand"
+                android:layout_alignEnd="@+id/spinner_brand"
+                android:layout_alignLeft="@+id/spinner_brand"
+                android:layout_alignRight="@+id/spinner_brand"
+                android:layout_alignStart="@+id/spinner_brand"
+                android:layout_below="@+id/spinner_brand"
                 android:layout_toEndOf="@+id/tv_color"
                 android:layout_toRightOf="@+id/tv_color"
                 android:hint="Your Color" />
@@ -213,7 +215,6 @@
                 android:layout_toEndOf="@+id/tv_show_phone_number"
                 android:layout_toRightOf="@+id/tv_show_phone_number"
                 android:hint="Your Phone Number" />
-
         </RelativeLayout>
     </LinearLayout>
 </ScrollView>
