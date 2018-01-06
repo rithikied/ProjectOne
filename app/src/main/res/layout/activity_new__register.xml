@@ -120,10 +120,11 @@
                 android:textColor="@color/colorBlueGray"
                 android:textSize="@dimen/textSize" />
 
-            <Spinner
+            <com.jaredrummler.materialspinner.MaterialSpinner
                 android:id="@+id/spinner_brand"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:layout_alignEnd="@+id/edt_age"
                 android:layout_alignLeft="@+id/edt_age"
                 android:layout_alignRight="@+id/edt_age"
@@ -131,8 +132,6 @@
                 android:layout_below="@+id/edt_age"
                 android:layout_toEndOf="@+id/tv_brand"
                 android:layout_toRightOf="@+id/tv_brand"
-                android:entries="@array/myarray"
-                android:spinnerMode="dialog"
 
                 />
 
