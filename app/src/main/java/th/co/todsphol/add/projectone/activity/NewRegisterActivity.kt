@@ -29,6 +29,7 @@ class NewRegisterActivity : AppCompatActivity() {
     private fun spinnerBrand() {
         spinnerBrand.setTextColor(resources.getColor(R.color.colorGreen))
         spinnerBrand.setArrowColor(resources.getColor(R.color.colorGreen))
+        spinnerBrand.setTextSize(resources.getDimension(R.dimen.textSizeInSpinner))
         spinnerBrand.setItems("Honda", "YAMAHA", "SUZUKI", "Kawasaki", "DUCATI", "Vespa", "HARLEY", "SHOPPER")
         spinnerBrand.setOnItemSelectedListener { view, position, id,
                                                  item ->
