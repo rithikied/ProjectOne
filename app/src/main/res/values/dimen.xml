@@ -5,4 +5,5 @@
     <dimen name="dp12">12dp</dimen>
     <dimen name="dp20">20dp</dimen>
     <dimen name="textSize">16sp</dimen>
+    <dimen name="textSizeInSpinner">8sp</dimen>
 </resources>

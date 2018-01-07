@@ -20,15 +20,8 @@ class SecondFragment : Fragment() {
         val view = inflater!!.inflate(R.layout.fragment_second, container, false)
         ButterKnife.bind(this,view)
         getMainActivity().supportActionBar?.show()
-        onClickButton()
         return view
 
-    }
-
-    private fun onClickButton() {
-        btnNext.setOnClickListener {
-            getMainActivity().changeFragment(FirstFragment.newInstance())
-        }
     }
 
     private fun getMainActivity() : FirstPageActivity {

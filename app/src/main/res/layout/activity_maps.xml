@@ -144,7 +144,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginEnd="@dimen/dp8"
                 android:layout_marginRight="@dimen/dp8"
-                android:text="กรุงเทพมหานคร"
+                android:text="กทม"
                 android:textColor="@color/colorBlueGray"
                 android:textSize="@dimen/textSize" />
 
@@ -156,7 +156,7 @@
                 android:layout_alignStart="@+id/tv_show_licence_plate"
                 android:layout_below="@+id/tv_show_licence_plate"
                 android:layout_marginTop="@dimen/dp8"
-                android:text="สถานะ :"
+                android:text="สถานะของยานพาหนะ :"
                 android:textColor="@color/colorBlueGray"
                 android:textSize="@dimen/textSize" />
 
@@ -171,15 +171,7 @@
                 android:text="ปลอดภัย"
                 android:textColor="@color/colorBlueGray"
                 android:textSize="@dimen/textSize" />
-            <Button
-                android:id="@+id/btn_call"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="@dimen/dp12"
-                android:text="โทร"
-                />
+
         </RelativeLayout>
 
     </LinearLayout>
