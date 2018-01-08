@@ -42,7 +42,7 @@ class NewRegisterActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-        titleToolbar.text = "Register"
+        titleToolbar.text = getString(R.string.register)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
