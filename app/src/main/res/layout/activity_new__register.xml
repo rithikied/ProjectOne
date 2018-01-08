@@ -1,222 +1,88 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="1"
     tools:context="th.co.todsphol.add.projectone.fragment.SecondFragment">
-    <LinearLayout
+
+    <include layout="@layout/custom_toolbar" />
+
+    <RelativeLayout
+        android:id="@+id/rela_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <include layout="@layout/custom_toolbar" />
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp12"
+            android:layout_marginStart="@dimen/dp12"
+            android:layout_marginTop="@dimen/dp12"
+            android:text="ชื่อ - นามสกุล"
+            android:textSize="@dimen/textSize"
+            android:textColor="@color/colorBlueGray"
+            />
 
-                <Button
-                    android:id="@+id/btn_register"
-                    style="@style/ButtonGreen"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginTop="@dimen/dp20"
-                    android:layout_alignParentBottom="true"
-                    android:text="Register" />
+        <LinearLayout
+            android:id="@+id/liner_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tv_name"
+            android:layout_alignStart="@+id/tv_name"
+            android:layout_below="@+id/tv_name"
+            android:layout_marginRight="@dimen/dp12"
+            android:layout_marginEnd="@dimen/dp12"
+            android:orientation="horizontal"
+            android:weightSum="2">
 
-                <TextView
-                    android:id="@+id/tv_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@id/btn_register"
-                    android:layout_alignStart="@+id/btn_register"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="24dp"
-                    android:text="ชื่อ"
-                    android:textColor="@color/colorBlueGray"
-                    android:textSize="@dimen/textSize" />
+            <EditText
+                android:id="@+id/edt_first_name"
+                style="@style/EditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="ชื่อของคุณ"
+                android:inputType="text" />
 
-                <EditText
-                    android:id="@+id/edt_name"
-                    style="@style/EditText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignEnd="@+id/btn_register"
-                    android:layout_alignRight="@+id/btn_register"
-                    android:layout_marginLeft="60dp"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="@dimen/dp12"
-                    android:layout_toEndOf="@+id/tv_name"
-                    android:layout_toRightOf="@+id/tv_name"
-                    android:hint="Your Name" />
+            <EditText
+                android:id="@+id/edt_last_name"
+                style="@style/EditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="นามสกุลของคุณ"
+                android:inputType="text" />
 
-                <TextView
-                    android:id="@+id/tv_surname"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/tv_name"
-                    android:layout_alignStart="@+id/tv_name"
-                    android:layout_below="@+id/tv_name"
-                    android:layout_marginTop="35dp"
-                    android:text="นามสกุล"
-                    android:textColor="@color/colorBlueGray"
-                    android:textSize="@dimen/textSize" />
+        </LinearLayout>
 
-                <EditText
-                    android:id="@+id/edt_surname"
-                    style="@style/EditText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignEnd="@+id/btn_register"
-                    android:layout_alignLeft="@+id/edt_name"
-                    android:layout_alignRight="@+id/btn_register"
-                    android:layout_alignStart="@+id/edt_name"
-                    android:layout_below="@+id/edt_name"
-                    android:layout_toEndOf="@+id/tv_surname"
-                    android:layout_toRightOf="@+id/tv_surname"
-                    android:hint="Your Surname" />
+        <TextView
+            android:id="@+id/tv_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="อายุ"
+            android:layout_below="@+id/liner_view"
+            android:layout_alignLeft="@+id/tv_name"
+            android:layout_alignStart="@+id/tv_name"
+            android:layout_marginTop="@dimen/dp12"
+            android:textColor="@color/colorBlueGray"
+            android:textSize="@dimen/textSize"
+            />
 
-                <TextView
-                    android:id="@+id/tv_age"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/tv_surname"
-                    android:layout_alignStart="@+id/tv_surname"
-                    android:layout_below="@+id/tv_surname"
-                    android:layout_marginTop="30dp"
-                    android:text="อายุ"
-                    android:textColor="@color/colorBlueGray"
-                    android:textSize="@dimen/textSize"
+        <EditText
+            android:id="@+id/edt_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/EditText"
+            android:layout_below="@+id/tv_age"
+            android:layout_alignLeft="@+id/tv_name"
+            android:layout_alignStart="@+id/tv_name"
+            android:layout_alignRight="@+id/liner_view"
+            android:layout_alignEnd="@+id/liner_view"
+            android:inputType="number"
+            android:hint="อายุของคุณ"
+            />
 
-                    />
+    </RelativeLayout>
 
-                <EditText
-                    android:id="@+id/edt_age"
-                    style="@style/EditText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignEnd="@+id/btn_register"
-                    android:layout_alignLeft="@+id/edt_surname"
-                    android:layout_alignRight="@+id/btn_register"
-                    android:layout_alignStart="@+id/edt_surname"
-                    android:layout_below="@+id/edt_surname"
-                    android:layout_toEndOf="@+id/tv_age"
-                    android:layout_toRightOf="@+id/tv_age"
-                    android:hint="Your Age" />
-
-                <TextView
-                    android:id="@+id/tv_brand"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/tv_age"
-                    android:layout_alignStart="@+id/tv_age"
-                    android:layout_below="@+id/tv_age"
-                    android:layout_marginTop="30dp"
-                    android:text="ยี่ห้อรถ"
-                    android:textColor="@color/colorBlueGray"
-                    android:textSize="@dimen/textSize" />
-
-                <com.jaredrummler.materialspinner.MaterialSpinner
-                    android:id="@+id/spinner_brand"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignEnd="@+id/edt_age"
-                    android:layout_alignLeft="@+id/edt_age"
-                    android:layout_alignRight="@+id/edt_age"
-                    android:layout_alignStart="@+id/edt_age"
-                    android:layout_below="@+id/edt_age"
-                    android:layout_marginTop="4dp"
-                    android:layout_toEndOf="@+id/tv_brand"
-                    android:layout_toRightOf="@+id/tv_brand"
-
-                    />
-
-                <TextView
-                    android:id="@+id/tv_color"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/tv_brand"
-                    android:layout_alignStart="@+id/tv_brand"
-                    android:layout_below="@+id/tv_brand"
-                    android:layout_marginTop="33dp"
-                    android:text="สีรถ"
-                    android:textColor="@color/colorBlueGray"
-                    android:textSize="@dimen/textSize" />
-
-                <EditText
-                    android:id="@+id/edt_color"
-                    style="@style/EditText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignEnd="@+id/spinner_brand"
-                    android:layout_alignLeft="@+id/spinner_brand"
-                    android:layout_alignRight="@+id/spinner_brand"
-                    android:layout_alignStart="@+id/spinner_brand"
-                    android:layout_below="@+id/spinner_brand"
-                    android:layout_toEndOf="@+id/tv_color"
-                    android:layout_toRightOf="@+id/tv_color"
-                    android:hint="Your Color" />
-
-                <TextView
-                    android:id="@+id/tv_license_plate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@id/tv_color"
-                    android:layout_alignStart="@+id/tv_color"
-                    android:layout_below="@+id/tv_color"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="30dp"
-                    android:text="ป้ายทะเบียน"
-                    android:textColor="@color/colorBlueGray"
-                    android:textSize="@dimen/textSize" />
-
-                <EditText
-                    android:id="@+id/edt_license_plate"
-                    style="@style/EditText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignEnd="@+id/edt_color"
-                    android:layout_alignLeft="@+id/edt_color"
-                    android:layout_alignRight="@+id/edt_color"
-                    android:layout_alignStart="@+id/edt_color"
-                    android:layout_below="@+id/edt_color"
-                    android:layout_toEndOf="@id/tv_license_plate"
-                    android:layout_toRightOf="@+id/tv_license_plate"
-                    android:hint="Your License Plate" />
-
-                <TextView
-                    android:id="@+id/tv_show_phone_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/tv_license_plate"
-                    android:layout_alignStart="@+id/tv_license_plate"
-                    android:layout_below="@+id/tv_license_plate"
-                    android:layout_marginTop="30dp"
-                    android:text="เบอร์โทรศัทพ์"
-                    android:textColor="@color/colorBlueGray"
-                    android:textSize="@dimen/textSize" />
-
-                <EditText
-                    android:id="@+id/edt_phone_number"
-                    style="@style/EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignEnd="@id/edt_license_plate"
-                    android:layout_alignLeft="@+id/edt_license_plate"
-                    android:layout_alignRight="@+id/edt_license_plate"
-                    android:layout_alignStart="@+id/edt_license_plate"
-                    android:layout_below="@id/edt_license_plate"
-                    android:layout_toEndOf="@+id/tv_show_phone_number"
-                    android:layout_toRightOf="@+id/tv_show_phone_number"
-                    android:inputType="phone"
-                    android:hint="Your Phone Number" />
-        </RelativeLayout>
-    </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>
