@@ -1,88 +1,238 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="th.co.todsphol.add.projectone.fragment.SecondFragment">
+    android:layout_height="match_parent">
 
-    <include layout="@layout/custom_toolbar" />
-
-    <RelativeLayout
-        android:id="@+id/rela_view"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="th.co.todsphol.add.projectone.fragment.SecondFragment">
 
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dp12"
-            android:layout_marginStart="@dimen/dp12"
-            android:layout_marginTop="@dimen/dp12"
-            android:text="ชื่อ - นามสกุล"
-            android:textSize="@dimen/textSize"
-            android:textColor="@color/colorBlueGray"
-            />
 
-        <LinearLayout
-            android:id="@+id/liner_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/tv_name"
-            android:layout_alignStart="@+id/tv_name"
-            android:layout_below="@+id/tv_name"
-            android:layout_marginRight="@dimen/dp12"
-            android:layout_marginEnd="@dimen/dp12"
-            android:orientation="horizontal"
-            android:weightSum="2">
+        <include layout="@layout/custom_toolbar" />
+
+        <RelativeLayout
+            android:id="@+id/rela_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp12"
+                android:layout_marginStart="@dimen/dp12"
+                android:layout_marginTop="@dimen/dp12"
+                android:text="ชื่อ - นามสกุล"
+                android:textColor="@color/colorBlueGray"
+                android:textSize="@dimen/textSize" />
+
+            <LinearLayout
+                android:id="@+id/liner_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_name"
+                android:layout_alignStart="@+id/tv_name"
+                android:layout_below="@+id/tv_name"
+                android:layout_marginEnd="@dimen/dp12"
+                android:layout_marginRight="@dimen/dp12"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <EditText
+                    android:id="@+id/edt_first_name"
+                    style="@style/EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="ชื่อของคุณ"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/edt_last_name"
+                    style="@style/EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="นามสกุลของคุณ"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_name"
+                android:layout_alignStart="@+id/tv_name"
+                android:layout_below="@+id/liner_view"
+                android:layout_marginTop="@dimen/dp12"
+                android:text="อายุ"
+                android:textColor="@color/colorBlueGray"
+                android:textSize="@dimen/textSize" />
 
             <EditText
-                android:id="@+id/edt_first_name"
+                android:id="@+id/edt_age"
                 style="@style/EditText"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="ชื่อของคุณ"
-                android:inputType="text" />
+                android:layout_alignEnd="@+id/liner_view"
+                android:layout_alignLeft="@+id/tv_name"
+                android:layout_alignRight="@+id/liner_view"
+                android:layout_alignStart="@+id/tv_name"
+                android:layout_below="@+id/tv_age"
+                android:hint="อายุของคุณ"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/tv_brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_age"
+                android:layout_alignStart="@+id/tv_age"
+                android:layout_below="@+id/edt_age"
+                android:layout_marginTop="@dimen/dp12"
+                android:text="ยี่ห้อรถ"
+                android:textColor="@color/colorBlueGray"
+                android:textSize="@dimen/textSize" />
+
+            <LinearLayout
+                android:id="@+id/liner_view_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@id/liner_view"
+                android:layout_alignLeft="@+id/tv_name"
+                android:layout_alignRight="@id/liner_view"
+                android:layout_alignStart="@+id/tv_name"
+                android:layout_below="@+id/tv_brand"
+                android:layout_marginTop="@dimen/dp12"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    android:id="@+id/spinner_brand"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp8"
+                    android:layout_marginLeft="@dimen/dp8"
+                    android:layout_marginRight="@dimen/dp8"
+                    android:layout_marginStart="@dimen/dp8"
+                    android:layout_weight="1" />
+
+                <EditText
+                    android:id="@+id/edt_color"
+                    style="@style/EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="สีรถของคุณ"
+                    android:inputType="text" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_licence_plate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/tv_name"
+                android:layout_alignStart="@+id/tv_brand"
+                android:layout_below="@+id/liner_view_two"
+                android:layout_marginTop="@dimen/dp12"
+                android:text="ป้ายทะเบียน"
+                android:textColor="@color/colorBlueGray"
+                android:textSize="@dimen/textSize" />
 
             <EditText
-                android:id="@+id/edt_last_name"
+                android:id="@+id/edt_licence_plate"
                 style="@style/EditText"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="นามสกุลของคุณ"
+                android:layout_alignEnd="@id/liner_view_two"
+                android:layout_alignLeft="@+id/liner_view"
+                android:layout_alignRight="@+id/liner_view_two"
+                android:layout_alignStart="@id/liner_view"
+                android:layout_below="@id/tv_licence_plate"
+                android:hint="ป้ายทะเบียนรถของคุณ"
                 android:inputType="text" />
 
-        </LinearLayout>
+            <TextView
+                android:id="@+id/tv_phone_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_name"
+                android:layout_alignStart="@id/tv_name"
+                android:layout_below="@+id/edt_licence_plate"
+                android:layout_marginTop="@dimen/dp12"
+                android:text="เบอร์โทรศัทพ์"
+                android:textColor="@color/colorBlueGray"
+                android:textSize="@dimen/textSize" />
 
-        <TextView
-            android:id="@+id/tv_age"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="อายุ"
-            android:layout_below="@+id/liner_view"
-            android:layout_alignLeft="@+id/tv_name"
-            android:layout_alignStart="@+id/tv_name"
-            android:layout_marginTop="@dimen/dp12"
-            android:textColor="@color/colorBlueGray"
-            android:textSize="@dimen/textSize"
-            />
+            <EditText
+                android:id="@+id/edt_phone_number"
+                style="@style/EditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@id/liner_view_two"
+                android:layout_alignLeft="@id/liner_view_two"
+                android:layout_alignRight="@+id/liner_view_two"
+                android:layout_alignStart="@id/liner_view_two"
+                android:layout_below="@id/tv_phone_number"
+                android:hint="เบอร์โทรศัทพ์ของคุณ"
+                android:inputType="phone" />
 
-        <EditText
-            android:id="@+id/edt_age"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/EditText"
-            android:layout_below="@+id/tv_age"
-            android:layout_alignLeft="@+id/tv_name"
-            android:layout_alignStart="@+id/tv_name"
-            android:layout_alignRight="@+id/liner_view"
-            android:layout_alignEnd="@+id/liner_view"
-            android:inputType="number"
-            android:hint="อายุของคุณ"
-            />
+            <TextView
+                android:id="@+id/tv_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_name"
+                android:layout_alignStart="@+id/tv_name"
+                android:layout_below="@id/edt_phone_number"
+                android:layout_marginTop="@dimen/dp12"
+                android:text="รหัสผ่าน"
+                android:textColor="@color/colorBlueGray"
+                android:textSize="@dimen/textSize" />
 
-    </RelativeLayout>
+            <EditText
+                android:id="@+id/edt_password"
+                style="@style/EditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/liner_view_two"
+                android:layout_alignLeft="@id/liner_view_two"
+                android:layout_alignRight="@id/liner_view_two"
+                android:layout_alignStart="@id/liner_view_two"
+                android:layout_below="@+id/tv_password"
+                android:hint="รหัสผ่านของคุณ"
+                android:inputType="numberPassword" />
 
-</LinearLayout>
+            <EditText
+                android:id="@+id/edt_confirm_password"
+                style="@style/EditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@id/liner_view_two"
+                android:layout_alignLeft="@id/liner_view_two"
+                android:layout_alignRight="@id/liner_view_two"
+                android:layout_alignStart="@id/liner_view_two"
+                android:layout_below="@+id/edt_password"
+                android:hint="ยืนยันรหัสผ่านของคุณ"
+                android:inputType="numberPassword"
+                />
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edt_confirm_password"
+                android:layout_alignLeft="@id/liner_view_two"
+                android:layout_alignStart="@id/liner_view_two"
+                android:layout_alignRight="@id/liner_view_two"
+                android:layout_alignEnd="@id/liner_view_two"
+                android:layout_marginTop="@dimen/dp12"
+                android:text="ลงทะเบียน"
+                style="@style/ButtonGreen"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
