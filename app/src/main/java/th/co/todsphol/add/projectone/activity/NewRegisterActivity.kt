@@ -31,7 +31,7 @@ class NewRegisterActivity : AppCompatActivity() {
         spinnerBrand.setArrowColor(resources.getColor(R.color.colorGreen))
         spinnerBrand.textSize = resources.getDimension(R.dimen.textSizeInSpinner   )
         spinnerBrand.setItems("Honda", "YAMAHA", "SUZUKI", "Kawasaki", "DUCATI", "Vespa", "HARLEY", "SHOPPER")
-        spinnerBrand.setOnItemSelectedListener { view, position, id,
+        spinnerBrand.setOnItemSelectedListener { view, _, _,
                                                  item ->
             Snackbar.make(view, "Clicked " + item, Snackbar.LENGTH_LONG).show()
         }
