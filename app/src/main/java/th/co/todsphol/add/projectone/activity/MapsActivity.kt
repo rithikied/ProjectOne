@@ -1,18 +1,18 @@
 package th.co.todsphol.add.projectone.activity
 
+import android.annotation.SuppressLint
+import android.location.Location
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.google.android.gms.maps.CameraUpdateFactory
+import android.widget.Toast
+import com.google.android.gms.maps.*
 
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import th.co.todsphol.add.projectone.R
 
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener {
 
 
     private lateinit var mMap: GoogleMap
@@ -26,6 +26,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
     }
 
+    @SuppressLint("MissingPermission")
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         mMap.uiSettings.isTiltGesturesEnabled = true
@@ -37,8 +38,17 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.addMarker(MarkerOptions().position(chagwattana).title("Changwattana"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(chagwattana))
         mMap.animateCamera(CameraUpdateFactory.zoomTo(15.0f))
+        mMap.setMyLocationEnabled(true)
+        mMap.setOnMyLocationButtonClickListener(this)
+        mMap.setOnMyLocationClickListener(this)
 
     }
+    override fun onMyLocationClick(location: Location) {
+        Toast.makeText(this, "Current location:\n" + location, Toast.LENGTH_LONG).show();
+    }
 
-
+    override fun onMyLocationButtonClick(): Boolean {
+        Toast.makeText(this, "MyLocation button clicked", Toast.LENGTH_SHORT).show();
+        return false
+    }
 }
