@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/colorStrongGreen</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="TextView">
         <item name="android:minWidth">500dp</item>
         <item name="android:textSize">18sp</item>
@@ -17,21 +18,37 @@
         <item name="android:background">@drawable/s_selector_rectangle</item>
         <item name="android:textColor">@color/c_states_text_view_text_color</item>
     </style>
+
+    <style name="Box">
+        <item name="android:minWidth">500dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:drawablePadding">16dp</item>
+        <item name="android:layout_marginTop">@dimen/dp4</item>
+        <item name="android:layout_marginLeft">@dimen/dp8</item>
+        <item name="android:layout_marginRight">@dimen/dp8</item>
+        <item name="android:background">@drawable/s_selector_rectangle_box</item>
+        <item name="android:textColor">@color/c_states_text_view_text_color</item>
+    </style>
+
     <style name="Button" parent="TextView">
         <item name="android:textColor">@android:color/white</item>
     </style>
+
     <style name="ButtonBase" parent="Button">
         <item name="android:textSize">@dimen/textSize</item>
         <item name="android:foreground">?selectableItemBackground</item>
     </style>
+
     <style name="ButtonGreen" parent="ButtonBase">
         <item name="android:background">@drawable/s_bg_button_green</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
+
     <style name="EditText" parent="TextView">
         <item name="android:maxLines">1</item>
         <item name="android:maxLength">25</item>
     </style>
+
     <style name="TestEditText" parent="EditText">
         <item name="android:inputType">text</item>
         <item name="android:maxLines">1</item>

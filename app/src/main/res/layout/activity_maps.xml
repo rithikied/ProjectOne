@@ -7,6 +7,7 @@
     tools:context=".activity.MapsActivity">
 
     <LinearLayout
+        android:id="@+id/liner_map"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -23,14 +24,15 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1.5">
+            android:layout_weight="1.5"
+            style="@style/Box"
+            android:layout_marginBottom="@dimen/dp8"
+            android:layout_marginTop="@dimen/dp8">
 
             <TextView
                 android:id="@+id/tv_show_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp8"
-                android:layout_marginRight="@dimen/dp8"
                 android:layout_marginTop="@dimen/dp8"
                 android:text="ชื่อเจ้าของยานพาหนะ :"
                 android:textColor="@color/colorBlueGray"
@@ -56,8 +58,6 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignTop="@+id/tv_show_name"
-                android:layout_marginLeft="@dimen/dp8"
-                android:layout_marginRight="@dimen/dp8"
                 android:text="Surname"
                 android:textColor="@color/colorBlueGray"
                 android:textSize="@dimen/textSize" />
@@ -80,8 +80,6 @@
                 android:layout_alignBottom="@+id/tv_show_brand"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginEnd="@dimen/dp8"
-                android:layout_marginRight="@dimen/dp8"
                 android:text="Brand"
                 android:textColor="@color/colorBlueGray"
                 android:textSize="@dimen/textSize" />
@@ -105,8 +103,6 @@
                 android:layout_alignBottom="@+id/tv_show_color"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginEnd="@dimen/dp8"
-                android:layout_marginRight="@dimen/dp8"
                 android:text="เขียว"
                 android:textColor="@color/colorBlueGray"
                 android:textSize="@dimen/textSize" />
@@ -142,8 +138,6 @@
                 android:layout_alignBottom="@+id/tv_show_licence_plate"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginEnd="@dimen/dp8"
-                android:layout_marginRight="@dimen/dp8"
                 android:text="กทม"
                 android:textColor="@color/colorBlueGray"
                 android:textSize="@dimen/textSize" />
@@ -166,8 +160,6 @@
                 android:layout_alignBottom="@+id/tv_show_status"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginEnd="@dimen/dp8"
-                android:layout_marginRight="@dimen/dp8"
                 android:text="ปลอดภัย"
                 android:textColor="@color/colorBlueGray"
                 android:textSize="@dimen/textSize" />

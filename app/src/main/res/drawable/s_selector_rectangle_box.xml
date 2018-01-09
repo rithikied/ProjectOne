@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/s_rectangle_disable_box" android:state_enabled= "false"/>
+    <item android:drawable="@drawable/s_rectangle_active_box" android:state_pressed="true"/>
+    <item android:drawable="@drawable/s_rectangle_active_box" android:state_selected="true"/>
+    <item android:drawable="@drawable/s_rectangle_active_box" android:state_focused="true"/>
+    <item android:drawable="@drawable/s_rectangle_idle_box" android:state_focused="false"/>
+    <item android:drawable="@drawable/s_rectangle_disable_box"/>
+</selector>
