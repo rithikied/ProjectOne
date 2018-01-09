@@ -34,9 +34,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         mMap.uiSettings.isScrollGesturesEnabled = true
         mMap.uiSettings.isZoomControlsEnabled = true
         mMap.uiSettings.isMyLocationButtonEnabled = true
-        val chagwattana = LatLng(13.903890, 100.528437)
-        mMap.addMarker(MarkerOptions().position(chagwattana).title("Changwattana"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(chagwattana))
+        val chaengwattana = LatLng(13.903890, 100.528437)
+        mMap.addMarker(MarkerOptions().position(chaengwattana).title("Chaengwattana"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(chaengwattana))
         mMap.animateCamera(CameraUpdateFactory.zoomTo(15.0f))
         mMap.setMyLocationEnabled(true)
         mMap.setOnMyLocationButtonClickListener(this)
