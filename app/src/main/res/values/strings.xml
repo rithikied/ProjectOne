@@ -6,4 +6,6 @@
     <string name="Hello">Hello World</string>
     <string name="title_activity_maps">Map</string>
     <string name="register">ลงทะเบียน</string>
+    <string name="title_activity_test_maps">Map</string>
+    <string name="title_activity_test_maps2">Map</string>
 </resources>
