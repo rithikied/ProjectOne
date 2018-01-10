@@ -39,3 +39,4 @@ dependencies {
     compile "com.android.support:recyclerview-v7:$supportLibraryVersion"
     compile 'com.jaredrummler:material-spinner:1.2.4'
 }
+apply plugin: 'com.google.gms.google-services'

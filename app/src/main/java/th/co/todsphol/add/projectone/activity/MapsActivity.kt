@@ -45,17 +45,22 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         title.text = "ตำแหน่งของรถ"
     }
 
+    var latitude = 1.0
+    var logitude = 2.0
+    fun getlo( x : Double , y : Double) {
+        latitude = x
+        logitude = y
+
+    }
     @SuppressLint("MissingPermission")
     override fun onMapReady(googleMap: GoogleMap) {
-        var latitude = 13.903890
-        var logtitude = 100.528437
         mMap = googleMap
         mMap.uiSettings.isTiltGesturesEnabled = true
         mMap.uiSettings.isRotateGesturesEnabled = true
         mMap.uiSettings.isScrollGesturesEnabled = true
         mMap.uiSettings.isZoomControlsEnabled = true
         mMap.uiSettings.isMyLocationButtonEnabled = true
-        val chaengwattana = LatLng(latitude, logtitude)
+        val chaengwattana = LatLng(latitude, logitude)
         mMap.addMarker(MarkerOptions().position(chaengwattana).title("Chaengwattana"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(chaengwattana))
         mMap.animateCamera(CameraUpdateFactory.zoomTo(15.0f))
@@ -71,10 +76,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
 
     }
 
+
     override fun onMyLocationClick(location: Location) {
         Log.d("Data Location", location.latitude.toString())
         Log.d("Data Location", location.longitude.toString())
-        Toast.makeText(this, "Current location:\n" + location, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Current location:\n" + location, Toast.LENGTH_LONG).show()
+        getlo(location.latitude, location.longitude)
+        Log.d("Latitude", latitude.toString())
+        Log.d("Longitude", logitude.toString())
     }
 
     override fun onMyLocationButtonClick(): Boolean {
