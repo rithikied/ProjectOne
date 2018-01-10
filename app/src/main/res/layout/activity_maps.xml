@@ -6,12 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".activity.MapsActivity">
 
+
     <LinearLayout
         android:id="@+id/liner_map"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="4">
+
+        <include layout="@layout/custom_toolbar" />
 
         <fragment
             android:id="@+id/map"
@@ -22,12 +25,12 @@
 
 
         <RelativeLayout
+            style="@style/Box"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1.5"
-            style="@style/Box"
             android:layout_marginBottom="@dimen/dp8"
-            android:layout_marginTop="@dimen/dp8">
+            android:layout_marginTop="@dimen/dp8"
+            android:layout_weight="1.5">
 
             <TextView
                 android:id="@+id/tv_show_name"
@@ -164,14 +167,6 @@
                 android:text="ปลอดภัย"
                 android:textColor="@color/colorBlueGray"
                 android:textSize="@dimen/textSize" />
-            <Button
-                android:id="@+id/btn_call_phone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_show_status"
-                style="@style/ButtonGreen"
-                android:text="โทรแจ้งความ"
-                />
 
         </RelativeLayout>
 

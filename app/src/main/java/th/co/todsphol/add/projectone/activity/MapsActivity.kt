@@ -14,13 +14,18 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import th.co.todsphol.add.projectone.R
 import android.content.Intent
+import android.support.v7.widget.Toolbar
 import android.util.Log
+import android.view.MenuItem
+import android.widget.TextView
+import butterknife.ButterKnife
 import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener {
 
-    @BindView(R.id.btn_call_phone) lateinit var callPhone: Button
+    @BindView(R.id.toolbar) lateinit var toolBar : Toolbar
+    @BindView(R.id.tv_toolbar_title) lateinit var title : TextView
     private lateinit var mMap: GoogleMap
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,9 +34,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+        ButterKnife.bind(this)
+        setToolBar()
 
 
 }
+    fun setToolBar() {
+        setSupportActionBar(toolBar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+        title.text = "ตำแหน่งของรถ"
+    }
 
     @SuppressLint("MissingPermission")
     override fun onMapReady(googleMap: GoogleMap) {
@@ -68,5 +80,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
     override fun onMyLocationButtonClick(): Boolean {
         Toast.makeText(this, "MyLocation button clicked", Toast.LENGTH_SHORT).show();
         return false
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            android.R.id.home -> onBackPressed()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
