@@ -26,6 +26,7 @@ class FirstPageActivity : AppCompatActivity() {
     private fun onClickLogin() {
         login.setOnClickListener {
             val homeIntent = Intent(this, MapsActivity::class.java)
+            homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(homeIntent)
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }

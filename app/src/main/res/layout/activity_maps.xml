@@ -124,6 +124,7 @@
                 android:textSize="@dimen/textSize" />
 
 
+
             <TextView
                 android:id="@+id/tv_county"
                 android:layout_width="wrap_content"

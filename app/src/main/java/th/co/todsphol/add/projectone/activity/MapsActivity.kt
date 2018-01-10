@@ -1,6 +1,7 @@
 package th.co.todsphol.add.projectone.activity
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.location.Location
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -12,13 +13,17 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import th.co.todsphol.add.projectone.R
 import android.content.Intent
+import android.location.Criteria
+import android.location.LocationManager
+import android.net.Uri
 import android.support.annotation.Nullable
 import android.support.v7.widget.Toolbar
-import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import butterknife.ButterKnife
-import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener
+import com.google.android.gms.common.api.GoogleApiClient
+import com.google.android.gms.maps.model.CameraPosition
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -43,7 +48,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
     @BindView(R.id.tv_county) lateinit var licencePlate: TextView
     @Nullable
     @BindView(R.id.tv_status) lateinit var alarmStatus: TextView
-    private lateinit var mMap: GoogleMap
+    lateinit var mMap: GoogleMap
     private var baseR = FirebaseDatabase.getInstance().reference
     private var dataName = baseR.child("User").child("user1").child("DATA_PERS")
     private var dataCar = baseR.child("User").child("user1").child("DATA_CAR")
@@ -61,6 +66,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         getDataname()
         getDataCar()
         getDataStatus()
+
     }
 
     fun getDataCar() {
@@ -122,12 +128,22 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         title.text = "ตำแหน่งของรถ"
     }
 
-    var latitude = 1.0
-    var logitude = 2.0
-    fun getlo(x: Double, y: Double) {
-        latitude = x
-        logitude = y
 
+    var latitude = 13.904098
+    var logitude = 100.528136
+    @SuppressLint("MissingPermission")
+    fun getlo(lati: Double, longi: Double) {
+        latitude = lati
+        logitude = longi
+        val googleapi: GoogleApiClient? = null
+        val mlocation: LocationManager = applicationContext.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        val criteria: Criteria? = null
+        val provider = mlocation.getBestProvider(criteria, true)
+        val location = mlocation.getLastKnownLocation(provider)
+        if (location != null) {
+
+
+        }
     }
 
     @SuppressLint("MissingPermission")
@@ -139,29 +155,44 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         mMap.uiSettings.isZoomControlsEnabled = true
         mMap.uiSettings.isMyLocationButtonEnabled = true
         val chaengwattana = LatLng(latitude, logitude)
-        mMap.addMarker(MarkerOptions().position(chaengwattana).title("Chaengwattana"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(chaengwattana))
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(15.0f))
+//        mMap.addMarker(MarkerOptions().position(chaengwattana).title("Chaengwattana"))
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(chaengwattana))
+//        mMap.animateCamera(CameraUpdateFactory.zoomTo(15.0f))
         mMap.isMyLocationEnabled = true
         mMap.setOnMyLocationButtonClickListener(this)
         mMap.setOnMyLocationClickListener(this)
-        mMap.setOnInfoWindowClickListener(OnInfoWindowClickListener { marker ->
-            val intent1 = Intent(this, CallActivity::class.java)
-            val title = marker.title
-            intent1.putExtra("markertitle", title)
-            startActivity(intent1)
-        })
+        mMap.setOnMapClickListener {
+            val position = CameraPosition.Builder()
+                    .target(chaengwattana)
+                    .zoom(17.0F)
+                    .bearing(0F)
+                    .tilt(30F)
+                    .build()
+            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(position))
+        }
+
+
+//        val locationManeger: LocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+//        try {
+//            val criteria: Criteria? = null
+//            val provider: String = locationManeger.getBestProvider(criteria, true)
+//            val myLocation: Location = locationManeger.getLastKnownLocation(provider)
+//            mMap.mapType = GoogleMap.MAP_TYPE_HYBRID
+//            val latitude: Double = myLocation.latitude
+//            val logtitude: Double = myLocation.longitude
+//            val latLng = LatLng(latitude, logtitude)
+//            mMap.animateCamera(CameraUpdateFactory.zoomTo(20F))
+//            mMap.addMarker(MarkerOptions().position(latLng))
+//        } catch (e: NullPointerException) {
+//
+//        }
 
     }
 
 
     override fun onMyLocationClick(location: Location) {
-        Log.d("Data Location", location.latitude.toString())
-        Log.d("Data Location", location.longitude.toString())
         Toast.makeText(this, "Current location:\n" + location, Toast.LENGTH_LONG).show()
         getlo(location.latitude, location.longitude)
-        Log.d("Latitude", latitude.toString())
-        Log.d("Longitude", logitude.toString())
     }
 
     override fun onMyLocationButtonClick(): Boolean {
@@ -172,7 +203,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             android.R.id.home -> onBackPressed()
+            R.id.action_favorite -> call()
         }
         return super.onOptionsItemSelected(item)
     }
+
+    @SuppressLint("MissingPermission")
+    private fun call() {
+        val callPhone = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0821945021"))
+        startActivity(callPhone)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
 }
