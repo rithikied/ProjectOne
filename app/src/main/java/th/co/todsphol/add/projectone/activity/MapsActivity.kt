@@ -1,11 +1,9 @@
 package th.co.todsphol.add.projectone.activity
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.location.Location
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import butterknife.BindView
 import com.google.android.gms.maps.*
@@ -20,13 +18,22 @@ import android.view.MenuItem
 import android.widget.TextView
 import butterknife.ButterKnife
 import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener {
 
-    @BindView(R.id.toolbar) lateinit var toolBar : Toolbar
-    @BindView(R.id.tv_toolbar_title) lateinit var title : TextView
+    @BindView(R.id.toolbar) lateinit var toolBar: Toolbar
+    @BindView(R.id.tv_toolbar_title) lateinit var title: TextView
+    @BindView(R.id.tv_name_client) lateinit var nameClient : TextView
+    @BindView(R.id.tv_surname_client) lateinit var surNameClient : TextView
     private lateinit var mMap: GoogleMap
+    private var baseR = FirebaseDatabase.getInstance().reference
+    private var dataName = baseR.child("User").child("user1").child("DATA_PERS")
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,9 +43,23 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         mapFragment.getMapAsync(this)
         ButterKnife.bind(this)
         setToolBar()
+        getData()
+    }
+    fun getData() {
+        dataName.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val namePer = dataSnapshot.child("name").getValue(String::class.java)
+                val surNamePer = dataSnapshot.child("surname").getValue(String::class.java)
+                nameClient.text = namePer.toString()
+                surNameClient.text = surNamePer.toString()
+            }
 
+            override fun onCancelled(p0: DatabaseError?) {
 
-}
+            }
+
+        })
+    }
     fun setToolBar() {
         setSupportActionBar(toolBar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
@@ -47,11 +68,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
 
     var latitude = 1.0
     var logitude = 2.0
-    fun getlo( x : Double , y : Double) {
+    fun getlo(x: Double, y: Double) {
         latitude = x
         logitude = y
 
     }
+
     @SuppressLint("MissingPermission")
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
