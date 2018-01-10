@@ -75,9 +75,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
                 val dataColorCar = dataSnapshot.child("color").getValue(String::class.java)
                 val dataBrand = dataSnapshot.child("Type").getValue(String::class.java)
                 val dataLicencePlate = dataSnapshot.child("LP").getValue(String::class.java)
-                brandCar.text = dataBrand.toString() ?: "q"
-                colorCar.text = dataColorCar.toString() ?: "q"
-                licencePlate.text = dataLicencePlate.toString() ?: "q"
+                brandCar.text = dataBrand.toString()
+                colorCar.text = dataColorCar.toString()
+                licencePlate.text = dataLicencePlate.toString()
             }
 
             override fun onCancelled(p0: DatabaseError?) {
@@ -92,8 +92,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val namePer = dataSnapshot.child("name").getValue(String::class.java)
                 val surNamePer = dataSnapshot.child("surname").getValue(String::class.java)
-                nameClient.text = namePer.toString() ?: "q"
-                surNameClient.text = surNamePer.toString() ?: "q"
+                nameClient.text = namePer.toString()
+                surNameClient.text = surNamePer.toString()
             }
 
             override fun onCancelled(p0: DatabaseError?) {
@@ -107,7 +107,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         dataStatus.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val dataStatusAlarm = dataSnapshot.child("Salarm").getValue(Int::class.java)
-                alarmStatus.text = "" ?: "q"
                 if (dataStatusAlarm == 0) {
                     alarmStatus.text = "ปลอดภัย"
                 } else {
@@ -135,15 +134,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
     fun getlo(lati: Double, longi: Double) {
         latitude = lati
         logitude = longi
-        val googleapi: GoogleApiClient? = null
-        val mlocation: LocationManager = applicationContext.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        val criteria: Criteria? = null
-        val provider = mlocation.getBestProvider(criteria, true)
-        val location = mlocation.getLastKnownLocation(provider)
-        if (location != null) {
-
-
-        }
+//        val googleapi: GoogleApiClient? = null
+//        val mlocation: LocationManager = applicationContext.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+//        val criteria: Criteria? = null
+//        val provider = mlocation.getBestProvider(criteria, true)
+//        val location = mlocation.getLastKnownLocation(provider)
+//        if (location != null) {
+//
+//        }
     }
 
     @SuppressLint("MissingPermission")
