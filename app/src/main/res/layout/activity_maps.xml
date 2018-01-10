@@ -78,6 +78,7 @@
                 android:textSize="@dimen/textSize" />
 
             <TextView
+                android:id="@+id/tv_brand_client"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/tv_show_brand"
@@ -122,17 +123,6 @@
                 android:textColor="@color/colorBlueGray"
                 android:textSize="@dimen/textSize" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/tv_show_licence_plate"
-                android:layout_marginEnd="@dimen/dp8"
-                android:layout_marginRight="@dimen/dp8"
-                android:layout_toLeftOf="@+id/tv_county"
-                android:layout_toStartOf="@+id/tv_county"
-                android:text="2345"
-                android:textColor="@color/colorBlueGray"
-                android:textSize="@dimen/textSize" />
 
             <TextView
                 android:id="@+id/tv_county"

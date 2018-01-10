@@ -12,6 +12,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import th.co.todsphol.add.projectone.R
 import android.content.Intent
+import android.support.annotation.Nullable
 import android.support.v7.widget.Toolbar
 import android.util.Log
 import android.view.MenuItem
@@ -26,13 +27,27 @@ import com.google.firebase.database.ValueEventListener
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener {
 
+    @Nullable
     @BindView(R.id.toolbar) lateinit var toolBar: Toolbar
+    @Nullable
     @BindView(R.id.tv_toolbar_title) lateinit var title: TextView
-    @BindView(R.id.tv_name_client) lateinit var nameClient : TextView
-    @BindView(R.id.tv_surname_client) lateinit var surNameClient : TextView
+    @Nullable
+    @BindView(R.id.tv_name_client) lateinit var nameClient: TextView
+    @Nullable
+    @BindView(R.id.tv_surname_client) lateinit var surNameClient: TextView
+    @Nullable
+    @BindView(R.id.tv_color_client) lateinit var colorCar: TextView
+    @Nullable
+    @BindView(R.id.tv_brand_client) lateinit var brandCar: TextView
+    @Nullable
+    @BindView(R.id.tv_county) lateinit var licencePlate: TextView
+    @Nullable
+    @BindView(R.id.tv_status) lateinit var alarmStatus: TextView
     private lateinit var mMap: GoogleMap
     private var baseR = FirebaseDatabase.getInstance().reference
     private var dataName = baseR.child("User").child("user1").child("DATA_PERS")
+    private var dataCar = baseR.child("User").child("user1").child("DATA_CAR")
+    private var dataStatus = baseR.child("USer").child("user1").child("STATUS")
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,15 +58,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         mapFragment.getMapAsync(this)
         ButterKnife.bind(this)
         setToolBar()
-        getData()
+        getDataname()
+        getDataCar()
+        getDataStatus()
     }
-    fun getData() {
-        dataName.addValueEventListener(object : ValueEventListener {
+
+    fun getDataCar() {
+        dataCar.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val namePer = dataSnapshot.child("name").getValue(String::class.java)
-                val surNamePer = dataSnapshot.child("surname").getValue(String::class.java)
-                nameClient.text = namePer.toString()
-                surNameClient.text = surNamePer.toString()
+                val dataColorCar = dataSnapshot.child("color").getValue(String::class.java)
+                val dataBrand = dataSnapshot.child("Type").getValue(String::class.java)
+                val dataLicencePlate = dataSnapshot.child("LP").getValue(String::class.java)
+                brandCar.text = dataBrand.toString() ?: "q"
+                colorCar.text = dataColorCar.toString() ?: "q"
+                licencePlate.text = dataLicencePlate.toString() ?: "q"
             }
 
             override fun onCancelled(p0: DatabaseError?) {
@@ -60,6 +80,42 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
 
         })
     }
+
+    fun getDataname() {
+        dataName.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val namePer = dataSnapshot.child("name").getValue(String::class.java)
+                val surNamePer = dataSnapshot.child("surname").getValue(String::class.java)
+                nameClient.text = namePer.toString() ?: "q"
+                surNameClient.text = surNamePer.toString() ?: "q"
+            }
+
+            override fun onCancelled(p0: DatabaseError?) {
+
+            }
+
+        })
+    }
+
+    fun getDataStatus() {
+        dataStatus.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val dataStatusAlarm = dataSnapshot.child("Salarm").getValue(Int::class.java)
+                alarmStatus.text = "" ?: "q"
+                if (dataStatusAlarm == 0) {
+                    alarmStatus.text = "ปลอดภัย"
+                } else {
+                    alarmStatus.text = "ไม่ปลอดภัย"
+                }
+            }
+
+            override fun onCancelled(p0: DatabaseError?) {
+
+            }
+
+        })
+    }
+
     fun setToolBar() {
         setSupportActionBar(toolBar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
