@@ -40,7 +40,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
     private var baseR = FirebaseDatabase.getInstance().reference
     private var dataName = baseR.child("User").child("user1").child("DATA_PERS")
     private var dataCar = baseR.child("User").child("user1").child("DATA_CAR")
-    private var dataStatus = baseR.child("USer").child("user1").child("STATUS")
+    private var dataStatus = baseR.child("User").child("user1").child("STATUS")
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
