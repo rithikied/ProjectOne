@@ -1,7 +1,6 @@
 package th.co.todsphol.add.projectone.activity
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.location.Location
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -10,11 +9,8 @@ import butterknife.BindView
 import com.google.android.gms.maps.*
 
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import th.co.todsphol.add.projectone.R
 import android.content.Intent
-import android.location.Criteria
-import android.location.LocationManager
 import android.net.Uri
 import android.support.annotation.Nullable
 import android.support.v7.widget.Toolbar
@@ -22,7 +18,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import butterknife.ButterKnife
-import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -32,21 +27,14 @@ import com.google.firebase.database.ValueEventListener
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener {
 
-    @Nullable
+
     @BindView(R.id.toolbar) lateinit var toolBar: Toolbar
-    @Nullable
     @BindView(R.id.tv_toolbar_title) lateinit var title: TextView
-    @Nullable
     @BindView(R.id.tv_name_client) lateinit var nameClient: TextView
-    @Nullable
     @BindView(R.id.tv_surname_client) lateinit var surNameClient: TextView
-    @Nullable
     @BindView(R.id.tv_color_client) lateinit var colorCar: TextView
-    @Nullable
     @BindView(R.id.tv_brand_client) lateinit var brandCar: TextView
-    @Nullable
     @BindView(R.id.tv_county) lateinit var licencePlate: TextView
-    @Nullable
     @BindView(R.id.tv_status) lateinit var alarmStatus: TextView
     lateinit var mMap: GoogleMap
     private var baseR = FirebaseDatabase.getInstance().reference
