@@ -189,7 +189,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             android.R.id.home -> onBackPressed()
-            R.id.action_favorite -> call()
         }
         return super.onOptionsItemSelected(item)
     }
