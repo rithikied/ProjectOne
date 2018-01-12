@@ -40,7 +40,10 @@
                     android:layout_marginLeft="@dimen/dp8"
                     android:layout_marginRight="@dimen/dp8"
                     android:hint="เบอร์โทรศัทพ์ของคุณ"
-                    android:textSize="@dimen/textSize" />
+                    android:textSize="@dimen/textSize"
+                    android:inputType="phone"
+                    android:maxLength="10"
+                    />
 
                 <EditText
                     android:id="@+id/edt_password"
@@ -52,7 +55,9 @@
                     android:layout_marginRight="@dimen/dp8"
                     android:layout_marginTop="@dimen/dp8"
                     android:hint="รหัสผ่านของคุณ"
-                    android:textSize="@dimen/textSize" />
+                    android:textSize="@dimen/textSize"
+                    android:inputType="numberPassword"
+                    android:maxLength="15"/>
 
 
             </RelativeLayout>
