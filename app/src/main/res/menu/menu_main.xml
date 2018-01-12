@@ -5,8 +5,8 @@
     tools:context=".MainActivity">
 
     <item
-        android:id="@+id/action_settings"
-        android:title="Settings"
+        android:id="@+id/action_call"
+        android:title="โทรด่วน"
         app:showAsAction="never" />
 
 </menu>
