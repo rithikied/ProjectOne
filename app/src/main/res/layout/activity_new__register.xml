@@ -1,19 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="th.co.todsphol.add.projectone.fragment.SecondFragment">
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+
+    <include layout="@layout/custom_toolbar" />
+
+    <ScrollView
+        android:id="@+id/scr_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:context="th.co.todsphol.add.projectone.fragment.SecondFragment">
-
-
-        <include layout="@layout/custom_toolbar" />
-
-        <ScrollView
-            android:id="@+id/scr_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:layout_height="match_parent">
 
         <RelativeLayout
             android:id="@+id/rela_view"
@@ -48,9 +46,11 @@
                     style="@style/EditText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp8"
+                    android:layout_marginRight="@dimen/dp8"
                     android:layout_weight="1"
                     android:hint="ชื่อของคุณ"
-                    android:inputType="text"/>
+                    android:inputType="text" />
 
                 <EditText
                     android:id="@+id/edt_last_name"
@@ -60,7 +60,7 @@
                     android:layout_weight="1"
                     android:hint="นามสกุลของคุณ"
                     android:inputType="text"
-                    android:maxLength="15"/>
+                    android:maxLength="15" />
 
             </LinearLayout>
 
@@ -88,7 +88,7 @@
                 android:layout_below="@+id/tv_age"
                 android:hint="อายุของคุณ"
                 android:inputType="number"
-                android:maxLength="2"/>
+                android:maxLength="2" />
 
             <TextView
                 android:id="@+id/tv_brand"
@@ -133,7 +133,7 @@
                     android:layout_weight="1"
                     android:hint="สีรถของคุณ"
                     android:inputType="text"
-                    android:maxLength="10"/>
+                    android:maxLength="10" />
             </LinearLayout>
 
             <TextView
@@ -160,7 +160,7 @@
                 android:layout_below="@id/tv_licence_plate"
                 android:hint="ป้ายทะเบียนรถของคุณ"
                 android:inputType="text"
-                android:maxLength="10"/>
+                android:maxLength="10" />
 
             <TextView
                 android:id="@+id/tv_phone_number"
@@ -186,7 +186,7 @@
                 android:layout_below="@id/tv_phone_number"
                 android:hint="เบอร์โทรศัทพ์ของคุณ"
                 android:inputType="phone"
-                android:maxLength="10"/>
+                android:maxLength="10" />
 
             <TextView
                 android:id="@+id/tv_password"
@@ -225,25 +225,24 @@
                 android:layout_below="@+id/edt_password"
                 android:hint="ยืนยันรหัสผ่านของคุณ"
                 android:inputType="numberPassword"
-                android:maxLength="15"
-                />
+                android:maxLength="15" />
+
             <Button
                 android:id="@+id/btn_register"
+                style="@style/ButtonGreen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/edt_confirm_password"
-                android:layout_alignLeft="@id/liner_view_two"
-                android:layout_alignStart="@id/liner_view_two"
-                android:layout_alignRight="@id/liner_view_two"
                 android:layout_alignEnd="@id/liner_view_two"
-                android:layout_marginTop="@dimen/dp12"
+                android:layout_alignLeft="@id/liner_view_two"
+                android:layout_alignRight="@id/liner_view_two"
+                android:layout_alignStart="@id/liner_view_two"
+                android:layout_below="@+id/edt_confirm_password"
                 android:layout_marginBottom="@dimen/dp12"
-                android:text="ลงทะเบียน"
-                style="@style/ButtonGreen"
+                android:layout_marginTop="@dimen/dp12"
                 android:maxLength="15"
-                />
+                android:text="ลงทะเบียน" />
 
         </RelativeLayout>
 
-        </ScrollView>
-    </LinearLayout>
+    </ScrollView>
+</LinearLayout>
