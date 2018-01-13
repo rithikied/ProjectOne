@@ -30,7 +30,7 @@
 
                 <EditText
                     android:id="@+id/edt_phone_number"
-                    style="@style/EditText"
+                    style="@style/TestEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -44,6 +44,9 @@
                     android:ellipsize="end"
                     android:digits="0,1,2,3,4,5,6,7,8,9,-"
                     android:maxLines="1"
+                    android:drawableLeft="@drawable/ic_phone"
+                    android:drawableStart="@drawable/ic_phone"
+
                     />
 
                 <EditText
@@ -63,6 +66,8 @@
                     android:layout_alignEnd="@id/edt_phone_number"
                     android:digits="0123456789"
                     android:ellipsize="end"
+                    android:drawableLeft="@drawable/ic_lock"
+                    android:drawableStart="@drawable/ic_lock"
                     />
 
 

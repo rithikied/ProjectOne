@@ -53,6 +53,8 @@
         <item name="android:inputType">text</item>
         <item name="android:maxLines">1</item>
         <item name="android:ellipsize">end</item>
+        <item name="android:drawableLeft">@drawable/ic_phone</item>
+        <item name="android:drawableStart">@drawable/ic_phone</item>
         <item name="background">@color/colorWhite</item>
     </style>
 </resources>
