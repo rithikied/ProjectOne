@@ -6,11 +6,9 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import butterknife.BindView
 import butterknife.ButterKnife
 import th.co.todsphol.add.projectone.R
-import th.co.todsphol.add.projectone.activity.FirstPageActivity
+import th.co.todsphol.add.projectone.activity.LoginActivity
 
 class SecondFragment : Fragment() {
 
@@ -23,8 +21,8 @@ class SecondFragment : Fragment() {
 
     }
 
-    private fun getMainActivity() : FirstPageActivity {
-        return activity as FirstPageActivity
+    private fun getMainActivity() : LoginActivity {
+        return activity as LoginActivity
     }
     companion object {
         fun newInstance() : Fragment {

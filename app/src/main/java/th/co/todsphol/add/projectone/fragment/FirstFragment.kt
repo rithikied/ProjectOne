@@ -2,17 +2,13 @@ package th.co.todsphol.add.projectone.fragment
 
 
 import android.os.Bundle
-import android.support.annotation.Nullable
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import butterknife.BindView
 import butterknife.ButterKnife
 import th.co.todsphol.add.projectone.R
-import th.co.todsphol.add.projectone.activity.FirstPageActivity
+import th.co.todsphol.add.projectone.activity.LoginActivity
 
 class FirstFragment : Fragment() {
 
@@ -24,8 +20,8 @@ class FirstFragment : Fragment() {
         return view
     }
 
-    private fun getMainActivity(): FirstPageActivity {
-        return activity as FirstPageActivity
+    private fun getMainActivity(): LoginActivity {
+        return activity as LoginActivity
     }
 
     companion object {
