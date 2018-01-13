@@ -32,7 +32,12 @@
             android:layout_marginRight="@dimen/dp8"
             android:text="ลงทะเบียน"
             />
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
 
 
 
