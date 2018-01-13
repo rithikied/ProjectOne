@@ -37,10 +37,13 @@
                     android:hint="เบอร์โทรศัทพ์ของคุณ"
                     android:textSize="@dimen/textSize"
                     android:inputType="phone"
-                    android:maxLength="10"
+                    android:maxLength="12"
                     android:layout_below="@+id/tv_show_text_login"
                     android:layout_marginLeft="@dimen/dp8"
                     android:layout_marginRight="@dimen/dp8"
+                    android:ellipsize="end"
+                    android:digits="0,1,2,3,4,5,6,7,8,9,-"
+                    android:maxLines="1"
                     />
 
                 <EditText
@@ -53,11 +56,13 @@
                     android:hint="รหัสผ่านของคุณ"
                     android:textSize="@dimen/textSize"
                     android:inputType="numberPassword"
-                    android:maxLength="15"
+                    android:maxLength="6"
                     android:layout_alignStart="@id/edt_phone_number"
                     android:layout_alignLeft="@id/edt_phone_number"
                     android:layout_alignRight="@+id/edt_phone_number"
                     android:layout_alignEnd="@id/edt_phone_number"
+                    android:digits="0123456789"
+                    android:ellipsize="end"
                     />
 
 

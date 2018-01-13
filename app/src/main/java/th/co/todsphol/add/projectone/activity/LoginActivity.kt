@@ -6,19 +6,33 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.EditText
 import butterknife.BindView
 import butterknife.ButterKnife
+import butterknife.OnTextChanged
 import th.co.todsphol.add.projectone.R
 import th.co.todsphol.add.projectone.fragment.FirstFragment
 
 class LoginActivity : AppCompatActivity() {
     @BindView(R.id.btn_login) lateinit var login : Button
+    @BindView(R.id.edt_phone_number) lateinit var edtPhone : EditText
+    @BindView(R.id.edt_password) lateinit var edtPassword : EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         ButterKnife.bind(this)
         onClickLogin()
+        onText(edtPhone.toString())
 //        Glide.with(this).load(drawable.shoot).crossFade().into(vImageBackground)
+    }
+
+    @OnTextChanged(R.id.edt_phone_number, callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
+    fun onText(phoneNumber : CharSequence) {
+        if (phoneNumber.toString().length == 12) {
+            edtPassword.visibility = android.view.View.VISIBLE
+            return
+        }
+        edtPassword.visibility = android.view.View.GONE
     }
 
     private fun onClickLogin() {
