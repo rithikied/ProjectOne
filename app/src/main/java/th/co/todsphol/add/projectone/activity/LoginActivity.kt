@@ -4,12 +4,15 @@ import android.content.Intent
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.telephony.PhoneNumberFormattingTextWatcher
+import android.telephony.PhoneNumberUtils
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnTextChanged
+import th.co.todsphol.add.projectone.PhoneNumberWatcher
 import th.co.todsphol.add.projectone.R
 import th.co.todsphol.add.projectone.fragment.FirstFragment
 
@@ -23,6 +26,7 @@ class LoginActivity : AppCompatActivity() {
         ButterKnife.bind(this)
         onClickLogin()
         onText(edtPhone.toString())
+        edtPhone.addTextChangedListener(PhoneNumberWatcher(edtPhone))
 //        Glide.with(this).load(drawable.shoot).crossFade().into(vImageBackground)
     }
 
