@@ -15,11 +15,13 @@ import android.support.design.widget.Snackbar
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import butterknife.OnClick
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import java.util.HashMap
+
+
 
 
 @Suppress("DEPRECATION")
@@ -54,8 +56,6 @@ class NewRegisterActivity : AppCompatActivity() {
     @BindView(R.id.edt_password) lateinit var edtPassword: EditText
     @Nullable
     @BindView(R.id.edt_confirm_password) lateinit var edtConfirmPassword: EditText
-    @Nullable
-    @BindView(R.id.btn_register) lateinit var btnRegister: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,9 +66,8 @@ class NewRegisterActivity : AppCompatActivity() {
         spinnerBrand()
     }
 
-
+    @OnClick(R.id.btn_register)
     fun registerButtonClicked() {
-        btnRegister.setOnClickListener {
             dataName.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     dataName.child("name").setValue(edtFirstName.text.toString())
@@ -129,10 +128,10 @@ class NewRegisterActivity : AppCompatActivity() {
                 }
 
             })
-        }
     }
 
     fun spinnerBrand() {
+
         spinnerBrand.setTextColor(resources.getColor(R.color.colorGreen))
         spinnerBrand.setArrowColor(resources.getColor(R.color.colorGreen))
         spinnerBrand.textSize = resources.getDimension(R.dimen.textSizeInSpinner)
@@ -143,7 +142,6 @@ class NewRegisterActivity : AppCompatActivity() {
             Snackbar.make(view, "Clicked " + item, Snackbar.LENGTH_LONG).show()
             dataCar.child("Type").setValue(item.toString())
         }
-
     }
 
     fun setToolbar() {

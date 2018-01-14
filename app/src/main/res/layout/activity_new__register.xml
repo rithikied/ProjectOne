@@ -50,7 +50,8 @@
                     android:layout_marginRight="@dimen/dp8"
                     android:layout_weight="1"
                     android:hint="ชื่อของคุณ"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    />
 
                 <EditText
                     android:id="@+id/edt_last_name"
