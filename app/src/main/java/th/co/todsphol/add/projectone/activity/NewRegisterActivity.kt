@@ -62,7 +62,6 @@ class NewRegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_new__register)
         ButterKnife.bind(this)
         setToolbar()
-        registerButtonClicked()
         spinnerBrand()
     }
 
@@ -128,6 +127,7 @@ class NewRegisterActivity : AppCompatActivity() {
                 }
 
             })
+
     }
 
     fun spinnerBrand() {
@@ -140,7 +140,7 @@ class NewRegisterActivity : AppCompatActivity() {
         spinnerBrand.setOnItemSelectedListener { view, _, _,
                                                  item ->
             Snackbar.make(view, "Clicked " + item, Snackbar.LENGTH_LONG).show()
-            dataCar.child("Type").setValue(item.toString())
+
         }
     }
 
