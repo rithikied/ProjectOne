@@ -160,7 +160,10 @@
                 android:layout_below="@id/tv_licence_plate"
                 android:hint="ป้ายทะเบียนรถของคุณ"
                 android:inputType="text"
-                android:maxLength="10" />
+                android:maxLength="10"
+                android:drawableStart="@drawable/ic_license_plate"
+                android:drawableLeft="@drawable/ic_license_plate"
+                />
 
             <TextView
                 android:id="@+id/tv_phone_number"
