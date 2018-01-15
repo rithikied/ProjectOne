@@ -1,6 +1,5 @@
 package th.co.todsphol.add.projectone.activity
 
-import android.content.Context
 import android.os.Bundle
 import android.support.annotation.Nullable
 import android.support.v7.app.AppCompatActivity
@@ -11,15 +10,13 @@ import butterknife.ButterKnife
 import com.jaredrummler.materialspinner.MaterialSpinner
 import th.co.todsphol.add.projectone.R
 import android.support.design.widget.Snackbar
-import android.view.View
 import android.widget.*
 import butterknife.OnClick
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-
-
+import th.co.todsphol.add.projectone.PhoneNumberWatcher
 
 
 @Suppress("DEPRECATION")
@@ -61,6 +58,7 @@ class NewRegisterActivity : AppCompatActivity() {
         ButterKnife.bind(this)
         setToolbar()
         spinnerBrand()
+        edtPhoneNumber.addTextChangedListener(PhoneNumberWatcher(edtPhoneNumber))
     }
 
     @OnClick(R.id.btn_register)
@@ -92,7 +90,9 @@ class NewRegisterActivity : AppCompatActivity() {
             })
             dataREG.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot?) {
-                    dataREG.child("telephone").setValue(edtPhoneNumber.text.toString())
+                    val edt = edtPhoneNumber.text.toString().replace("-".toRegex(), "")
+                            .replace("\\s+","")
+                    dataREG.child("telephone").setValue(edt)
                     if (edtPassword.text.toString() != edtConfirmPassword.text.toString()) {
                         Toast.makeText(this@NewRegisterActivity,"กรุณากรอก Password ให้เหมือนกัน", Toast.LENGTH_SHORT).show()
                     } else {
