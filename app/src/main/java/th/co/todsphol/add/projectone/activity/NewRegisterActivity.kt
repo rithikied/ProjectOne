@@ -5,16 +5,14 @@ import android.os.Bundle
 import android.support.annotation.Nullable
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
-import android.widget.TextView
 import android.support.v7.widget.Toolbar
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.jaredrummler.materialspinner.MaterialSpinner
 import th.co.todsphol.add.projectone.R
 import android.support.design.widget.Snackbar
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import butterknife.OnClick
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -109,8 +107,8 @@ class NewRegisterActivity : AppCompatActivity() {
             })
             dataLocation.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    val longitude = dataSnapshot.child("Longtitude").getValue(Int::class.java)
-                    val latitude = dataSnapshot.child("latitude").getValue(Int::class.java)
+//                    val longitude = dataSnapshot.child("Longtitude").getValue(Int::class.java)
+//                    val latitude = dataSnapshot.child("latitude").getValue(Int::class.java)
                     val vir = dataSnapshot.child("Vir").getValue(Int::class.java)
                 if (vir == 0) {
                     dataStatus.child("Salarm").setValue(0)
@@ -140,6 +138,7 @@ class NewRegisterActivity : AppCompatActivity() {
         spinnerBrand.setOnItemSelectedListener { view, _, _,
                                                  item ->
             Snackbar.make(view, "Clicked " + item, Snackbar.LENGTH_LONG).show()
+            dataCar.child("Type").setValue(item)
 
         }
     }
