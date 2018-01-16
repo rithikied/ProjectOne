@@ -18,10 +18,16 @@
 
         <fragment
             android:id="@+id/map"
+            xmlns:map="http://schemas.android.com/apk/res-auto"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2.5" />
+            android:layout_weight="2.5"
+            map:cameraBearing="0"
+            map:cameraTargetLat="13.904098"
+            map:cameraTargetLng="100.528136"
+            map:cameraTilt="30"
+            map:cameraZoom="2" />
 
 
         <RelativeLayout
