@@ -1,5 +1,6 @@
 package th.co.todsphol.add.projectone.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.annotation.Nullable
 import android.support.v7.app.AppCompatActivity
@@ -139,6 +140,10 @@ class NewRegisterActivity : AppCompatActivity() {
 
                 })
 
+                val loginSuccess = Intent(this,LoginSuccessActivity::class.java)
+                loginSuccess.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(loginSuccess)
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
 
             }
         }
