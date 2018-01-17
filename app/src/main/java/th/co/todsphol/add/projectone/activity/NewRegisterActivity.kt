@@ -63,68 +63,85 @@ class NewRegisterActivity : AppCompatActivity() {
 
     @OnClick(R.id.btn_register)
     fun registerButtonClicked() {
-            dataName.addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    dataName.child("name").setValue(edtFirstName.text.toString())
-                    dataName.child("surname").setValue(edtLastName.text.toString())
-                    dataName.child("age").setValue(edtAge.text.toString())
+        val checkBlankInEdittext = (edtFirstName.text.toString() == "" || edtLastName.text.toString() == ""
+                || edtAge.text.toString() == "" || edtColor.text.toString() == ""
+                || edtLicencePlate.text.toString() == "" || edtPhoneNumber.text.toString() == ""
+                || edtPassword.text.toString() == "" || edtConfirmPassword.text.toString() == "")
+        val checkLenPhone =  edtPhoneNumber.text.toString().replace("-".toRegex(), "")
+                .replace("\\s+", "").length < 10
+        val checkPassword = edtPassword.text.toString() != edtConfirmPassword.text.toString()
+        when {
+            checkBlankInEdittext -> Toast.makeText(this,"กรอกข้อมูลให้ครบ",Toast.LENGTH_SHORT).show()
+            checkLenPhone -> Toast.makeText(this,"กรอกเบอร์โทรให้ครบ",Toast.LENGTH_SHORT).show()
+            checkPassword-> Toast.makeText(this,"รหัสผ่านไม่เหมือนกัน",Toast.LENGTH_SHORT).show()
+            else -> {
 
-                }
+                dataName.addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        dataName.child("name").setValue(edtFirstName.text.toString())
+                        dataName.child("surname").setValue(edtLastName.text.toString())
+                        dataName.child("age").setValue(edtAge.text.toString())
 
-                override fun onCancelled(p0: DatabaseError?) {
-
-                }
-
-            })
-            dataCar.addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(p0: DataSnapshot?) {
-                    spinnerBrand()
-                    dataCar.child("color").setValue(edtColor.text.toString())
-                    dataCar.child("LP").setValue(edtLicencePlate.text.toString())
-                }
-
-                override fun onCancelled(p0: DatabaseError?) {
-
-                }
-
-            })
-            dataREG.addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(p0: DataSnapshot?) {
-                    val edt = edtPhoneNumber.text.toString().replace("-".toRegex(), "")
-                            .replace("\\s+","")
-                    dataREG.child("telephone").setValue(edt)
-                    if (edtPassword.text.toString() != edtConfirmPassword.text.toString()) {
-                        Toast.makeText(this@NewRegisterActivity,"กรุณากรอก Password ให้เหมือนกัน", Toast.LENGTH_SHORT).show()
-                    } else {
-                        dataREG.child("password").setValue(edtPassword.text.toString())
                     }
-                }
 
-                override fun onCancelled(p0: DatabaseError?) {
+                    override fun onCancelled(p0: DatabaseError?) {
 
-                }
+                    }
 
-            })
-            dataLocation.addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                })
+                dataCar.addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(p0: DataSnapshot?) {
+                        spinnerBrand()
+                        dataCar.child("color").setValue(edtColor.text.toString())
+                        dataCar.child("LP").setValue(edtLicencePlate.text.toString())
+                    }
+
+                    override fun onCancelled(p0: DatabaseError?) {
+
+                    }
+
+                })
+                dataREG.addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(p0: DataSnapshot?) {
+                        val edt = edtPhoneNumber.text.toString().replace("-".toRegex(), "")
+                                .replace("\\s+","")
+                        dataREG.child("telephone").setValue(edt)
+                        if (edtPassword.text.toString() != edtConfirmPassword.text.toString()) {
+                            Toast.makeText(this@NewRegisterActivity,"กรุณากรอก Password ให้เหมือนกัน", Toast.LENGTH_SHORT).show()
+                        } else {
+                            dataREG.child("password").setValue(edtPassword.text.toString())
+                        }
+                    }
+
+                    override fun onCancelled(p0: DatabaseError?) {
+
+                    }
+
+                })
+                dataLocation.addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
 //                    val longitude = dataSnapshot.child("Longtitude").getValue(Int::class.java)
 //                    val latitude = dataSnapshot.child("latitude").getValue(Int::class.java)
-                    val vir = dataSnapshot.child("Vir").getValue(Int::class.java)
-                if (vir == 0) {
-                    dataStatus.child("Salarm").setValue(0)
-                    dataStatus.child("Slogin").setValue(0)
-                } else {
-                    dataStatus.child("Salarm").setValue(0)
-                    dataStatus.child("Slogin").setValue(0)
-                }
+                        val vir = dataSnapshot.child("Vir").getValue(Int::class.java)
+                        if (vir == 0) {
+                            dataStatus.child("Salarm").setValue(0)
+                            dataStatus.child("Slogin").setValue(0)
+                        } else {
+                            dataStatus.child("Salarm").setValue(0)
+                            dataStatus.child("Slogin").setValue(0)
+                        }
 
-                }
+                    }
 
-                override fun onCancelled(p0: DatabaseError?) {
+                    override fun onCancelled(p0: DatabaseError?) {
 
-                }
+                    }
 
-            })
+                })
+
+
+            }
+        }
 
     }
 
