@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import butterknife.BindView
 import butterknife.ButterKnife
@@ -24,14 +25,21 @@ class LoginActivity : AppCompatActivity() {
     @BindView(R.id.edt_password) lateinit var edtPassword: EditText
     private var baseR = FirebaseDatabase.getInstance().reference
     private var dataReg = baseR.child("User").child("user1").child("DATA_REG")
+
+    companion object {
+        val EXTRA_PHONE = "EXTRA_PHONE"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         ButterKnife.bind(this)
         onText(edtPhone.toString())
         edtPhone.addTextChangedListener(PhoneNumberWatcher(edtPhone))
+        edtPhone.setText(intent.getStringExtra(EXTRA_PHONE),TextView.BufferType.EDITABLE)
+        edtPhone.setSelection(edtPhone.text.length)
 //        Glide.with(this).load(drawable.shoot).crossFade().into(vImageBackground)
     }
+
 
     @OnTextChanged(R.id.edt_phone_number, callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
     fun onText(phoneNumber: CharSequence) {

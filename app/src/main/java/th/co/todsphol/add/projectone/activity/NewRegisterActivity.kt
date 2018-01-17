@@ -62,14 +62,16 @@ class NewRegisterActivity : AppCompatActivity() {
         edtPhoneNumber.addTextChangedListener(PhoneNumberWatcher(edtPhoneNumber))
     }
 
+    val EXTRA_PHONE = "EXTRA_PHONE"
     @OnClick(R.id.btn_register)
     fun registerButtonClicked() {
         val checkBlankInEdittext = (edtFirstName.text.toString() == "" || edtLastName.text.toString() == ""
                 || edtAge.text.toString() == "" || edtColor.text.toString() == ""
                 || edtLicencePlate.text.toString() == "" || edtPhoneNumber.text.toString() == ""
                 || edtPassword.text.toString() == "" || edtConfirmPassword.text.toString() == "")
-        val checkLenPhone =  edtPhoneNumber.text.toString().replace("-".toRegex(), "")
-                .replace("\\s+", "").length < 10
+        val replacePhone = edtPhoneNumber.text.toString().replace("-".toRegex(), "")
+                .replace("\\s+", "")
+        val checkLenPhone =  replacePhone.length < 10
         val checkPassword = edtPassword.text.toString() != edtConfirmPassword.text.toString()
         when {
             checkBlankInEdittext -> Toast.makeText(this,"กรอกข้อมูลให้ครบ",Toast.LENGTH_SHORT).show()
@@ -141,6 +143,7 @@ class NewRegisterActivity : AppCompatActivity() {
                 })
 
                 val loginSuccess = Intent(this,LoginSuccessActivity::class.java)
+                loginSuccess.putExtra(EXTRA_PHONE,edtPhoneNumber.text.toString())
                 loginSuccess.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(loginSuccess)
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
