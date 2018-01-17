@@ -1,6 +1,7 @@
 package th.co.todsphol.add.projectone.activity
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.location.Location
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -12,7 +13,6 @@ import com.google.android.gms.maps.model.LatLng
 import th.co.todsphol.add.projectone.R
 import android.content.Intent
 import android.net.Uri
-import android.support.annotation.Nullable
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
@@ -42,7 +42,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
     private var dataCar = baseR.child("User").child("user1").child("DATA_CAR")
     private var dataStatus = baseR.child("User").child("user1").child("STATUS")
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
@@ -54,7 +53,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         getDataname()
         getDataCar()
         getDataStatus()
-
     }
 
     fun getDataCar() {
@@ -140,11 +138,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         mMap.uiSettings.isScrollGesturesEnabled = true
         mMap.uiSettings.isZoomControlsEnabled = true
         mMap.uiSettings.isMyLocationButtonEnabled = true
+        mMap.isMyLocationEnabled = true
         val chaengwattana = LatLng(latitude, logitude)
 //        mMap.addMarker(MarkerOptions().position(chaengwattana).title("Chaengwattana"))
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(chaengwattana))
 //        mMap.animateCamera(CameraUpdateFactory.zoomTo(15.0f))
-        mMap.isMyLocationEnabled = true
         mMap.setOnMyLocationButtonClickListener(this)
         mMap.setOnMyLocationClickListener(this)
         mMap.setOnMapClickListener {
@@ -173,8 +171,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
 //
 //        }
 
-    }
 
+    }
 
     override fun onMyLocationClick(location: Location) {
         Toast.makeText(this, "Current location:\n" + location, Toast.LENGTH_LONG).show()
