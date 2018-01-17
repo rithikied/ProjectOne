@@ -1,13 +1,9 @@
 package th.co.todsphol.add.projectone.activity
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.support.annotation.Nullable
 import android.support.v7.app.AppCompatActivity
-import android.view.View
 import android.widget.Button
-import android.widget.Toast
 import butterknife.BindView
 import butterknife.ButterKnife
 import th.co.todsphol.add.projectone.R
@@ -15,7 +11,7 @@ import th.co.todsphol.add.projectone.R
 class FirstPageActivity : AppCompatActivity() {
 
     @BindView(R.id.btn_new_register) lateinit var newRegister : Button
-    @BindView(R.id.btn_goto_login) lateinit var gotoLogin : Button
+    @BindView(R.id.btn_back_to_login) lateinit var gotoLogin : Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
