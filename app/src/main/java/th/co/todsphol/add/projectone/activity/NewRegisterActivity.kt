@@ -30,27 +30,16 @@ class NewRegisterActivity : AppCompatActivity() {
     private var dataREG = baseR.child("User").child("user1").child("DATA_REG")
     private var dataLocation = baseR.child("User").child("user1").child("DATA_LOCATION")
 
-    @Nullable
     @BindView(R.id.toolbar) lateinit var toolBar: Toolbar
-    @Nullable
     @BindView(R.id.tv_toolbar_title) lateinit var titleToolbar: TextView
-    @Nullable
     @BindView(R.id.edt_first_name) lateinit var edtFirstName: EditText
-    @Nullable
     @BindView(R.id.edt_last_name) lateinit var edtLastName: EditText
-    @Nullable
     @BindView(R.id.edt_age) lateinit var edtAge: EditText
-    @Nullable
     @BindView(R.id.spinner_brand) lateinit var spinnerBrand: MaterialSpinner
-    @Nullable
     @BindView(R.id.edt_color) lateinit var edtColor: EditText
-    @Nullable
     @BindView(R.id.edt_licence_plate) lateinit var edtLicencePlate: EditText
-    @Nullable
     @BindView(R.id.edt_phone_number) lateinit var edtPhoneNumber: EditText
-    @Nullable
     @BindView(R.id.edt_password) lateinit var edtPassword: EditText
-    @Nullable
     @BindView(R.id.edt_confirm_password) lateinit var edtConfirmPassword: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -147,7 +136,7 @@ class NewRegisterActivity : AppCompatActivity() {
                 loginSuccess.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(loginSuccess)
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-                dataCar.child("Type").setValue(getItem.toString())
+                dataCar.child("Type").setValue(getItem)
 
             }
         }
