@@ -25,6 +25,7 @@ class SplashActivity : AppCompatActivity() {
         if (!isFinishing) {
             val firstPageIntent = Intent(this,FirstPageActivity::class.java)
             startActivity(firstPageIntent)
+            overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)
             finish()
         }
     }
