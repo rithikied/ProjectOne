@@ -1,7 +1,6 @@
 package th.co.todsphol.add.projectone.activity
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.location.Location
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -12,13 +11,16 @@ import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import th.co.todsphol.add.projectone.R
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import butterknife.ButterKnife
-import com.google.android.gms.maps.model.CameraPosition
+import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.Polyline
+import com.google.android.gms.maps.model.PolylineOptions
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -41,6 +43,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
     private var dataName = baseR.child("User").child("user1").child("DATA_PERS")
     private var dataCar = baseR.child("User").child("user1").child("DATA_CAR")
     private var dataStatus = baseR.child("User").child("user1").child("STATUS")
+    private var dataLocation = baseR.child("User").child("user1").child("DATA_LOCATION")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -114,24 +117,23 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
     }
 
 
-    var latitude = 13.904098
-    var logitude = 100.528136
-    @SuppressLint("MissingPermission")
-    fun getlo(lati: Double, longi: Double) {
-        latitude = lati
-        logitude = longi
-//        val googleapi: GoogleApiClient? = null
-//        val mlocation: LocationManager = applicationContext.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-//        val criteria: Criteria? = null
-//        val provider = mlocation.getBestProvider(criteria, true)
-//        val location = mlocation.getLastKnownLocation(provider)
-//        if (location != null) {
-//
-//        }
-    }
-
     @SuppressLint("MissingPermission")
     override fun onMapReady(googleMap: GoogleMap) {
+        dataLocation.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val dataLatitude = dataSnapshot.child("latitude").getValue(Double::class.java)
+                val dataLongitude = dataSnapshot.child("Longtitude").getValue(Double::class.java)
+                val testCheck = LatLng(dataLatitude!!, dataLongitude!!)
+                mMap.addMarker(MarkerOptions().position(testCheck).title("Test"))
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(testCheck))
+                mMap.animateCamera(CameraUpdateFactory.zoomTo(15.0f))
+            }
+
+            override fun onCancelled(p0: DatabaseError?) {
+
+            }
+
+        })
         mMap = googleMap
         mMap.uiSettings.isTiltGesturesEnabled = true
         mMap.uiSettings.isRotateGesturesEnabled = true
@@ -139,44 +141,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         mMap.uiSettings.isZoomControlsEnabled = true
         mMap.uiSettings.isMyLocationButtonEnabled = true
         mMap.isMyLocationEnabled = true
-        val chaengwattana = LatLng(latitude, logitude)
-//        mMap.addMarker(MarkerOptions().position(chaengwattana).title("Chaengwattana"))
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(chaengwattana))
-//        mMap.animateCamera(CameraUpdateFactory.zoomTo(15.0f))
         mMap.setOnMyLocationButtonClickListener(this)
         mMap.setOnMyLocationClickListener(this)
-        mMap.setOnMapClickListener {
-            val position = CameraPosition.Builder()
-                    .target(chaengwattana)
-                    .zoom(17.0F)
-                    .bearing(0F)
-                    .tilt(30F)
-                    .build()
-            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(position))
-        }
-
-
-//        val locationManeger: LocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-//        try {
-//            val criteria: Criteria? = null
-//            val provider: String = locationManeger.getBestProvider(criteria, true)
-//            val myLocation: Location = locationManeger.getLastKnownLocation(provider)
-//            mMap.mapType = GoogleMap.MAP_TYPE_HYBRID
-//            val latitude: Double = myLocation.latitude
-//            val logtitude: Double = myLocation.longitude
-//            val latLng = LatLng(latitude, logtitude)
-//            mMap.animateCamera(CameraUpdateFactory.zoomTo(20F))
-//            mMap.addMarker(MarkerOptions().position(latLng))
-//        } catch (e: NullPointerException) {
-//
-//        }
-
 
     }
 
     override fun onMyLocationClick(location: Location) {
         Toast.makeText(this, "Current location:\n" + location, Toast.LENGTH_LONG).show()
-        getlo(location.latitude, location.longitude)
     }
 
     override fun onMyLocationButtonClick(): Boolean {
@@ -195,7 +166,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
 
     private fun onClickLogout() {
         dataStatus.child("Slogin").setValue(0)
-        val logoutIntent = Intent(this,LoginActivity::class.java)
+        val logoutIntent = Intent(this, LoginActivity::class.java)
         logoutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(logoutIntent)
     }
