@@ -25,6 +25,7 @@ class LoginActivity : AppCompatActivity() {
     @BindView(R.id.edt_password) lateinit var edtPassword: EditText
     private var baseR = FirebaseDatabase.getInstance().reference
     private var dataReg = baseR.child("User").child("user1").child("DATA_REG")
+    var dataStatus = baseR.child("User").child("user1").child("STATUS")
 
     companion object {
         val EXTRA_PHONE = "EXTRA_PHONE"
@@ -39,6 +40,7 @@ class LoginActivity : AppCompatActivity() {
         edtPhone.setText(intent.getStringExtra(EXTRA_PHONE), TextView.BufferType.EDITABLE)
         edtPhone.setSelection(edtPhone.text.length)
 //        Glide.with(this).load(drawable.shoot).crossFade().into(vImageBackground)
+
     }
 
 
@@ -87,6 +89,7 @@ class LoginActivity : AppCompatActivity() {
 
             }
         })
+
     }
 
     private fun isCorrect() {
@@ -94,6 +97,7 @@ class LoginActivity : AppCompatActivity() {
         homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(homeIntent)
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        dataStatus.child("Slogin").setValue(1)
     }
 
     private fun initFragment() {
