@@ -188,8 +188,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         when (item?.itemId) {
             android.R.id.home -> onBackPressed()
             R.id.action_call -> call()
+            R.id.action_logout -> onClickLogout()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun onClickLogout() {
+        dataStatus.child("Slogin").setValue(0)
+        val logoutIntent = Intent(this,LoginActivity::class.java)
+        logoutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(logoutIntent)
     }
 
     @SuppressLint("MissingPermission")
