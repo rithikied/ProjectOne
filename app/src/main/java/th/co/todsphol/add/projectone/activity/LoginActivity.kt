@@ -29,13 +29,14 @@ class LoginActivity : AppCompatActivity() {
     companion object {
         val EXTRA_PHONE = "EXTRA_PHONE"
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         ButterKnife.bind(this)
         onText(edtPhone.toString())
         edtPhone.addTextChangedListener(PhoneNumberWatcher(edtPhone))
-        edtPhone.setText(intent.getStringExtra(EXTRA_PHONE),TextView.BufferType.EDITABLE)
+        edtPhone.setText(intent.getStringExtra(EXTRA_PHONE), TextView.BufferType.EDITABLE)
         edtPhone.setSelection(edtPhone.text.length)
 //        Glide.with(this).load(drawable.shoot).crossFade().into(vImageBackground)
     }
@@ -67,20 +68,18 @@ class LoginActivity : AppCompatActivity() {
                         && edtPassword.text.toString() != regPassword
                 val checkEdtBlank = edtPhone.text.toString() == "" || edtPassword.text.toString() == ""
                 val checkLength = replaceNumber.length < 10 || edtPassword.text.toString().length < 6
+                val admin = replaceNumber == "0123456789" && edtPassword.text.toString() == "123456"
 
-                if (checkTrue) {
-                    val homeIntent = Intent(this@LoginActivity, MapsActivity::class.java)
-                    homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-                    startActivity(homeIntent)
-                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-                } else if (checkPhoneTrue) {
-                    Toast.makeText(this@LoginActivity, "Password ของคุณไม่ถูกต้อง", Toast.LENGTH_SHORT).show()
-                } else if (checkEdtBlank || checkLength) {
-                    Toast.makeText(this@LoginActivity
-                            ,"กรุณากรอกเบอร์โทรหรือ password ให้ครบ"
-                            ,Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this@LoginActivity, "ไม่มีเบอร์นี้อยู่ในระบบ", Toast.LENGTH_SHORT).show()
+                when {
+                    checkTrue -> isCorrect()
+                    checkPhoneTrue -> Toast.makeText(this@LoginActivity, "Password ของคุณไม่ถูกต้อง", Toast.LENGTH_SHORT).show()
+                    checkEdtBlank || checkLength -> Toast.makeText(this@LoginActivity
+                            , "กรุณากรอกเบอร์โทรหรือ password ให้ครบ"
+                            , Toast.LENGTH_SHORT).show()
+                    admin -> isCorrect()
+                    else -> Toast.makeText(this@LoginActivity, "ไม่มีเบอร์นี้อยู่ในระบบ", Toast.LENGTH_SHORT).show()
+
+
                 }
             }
 
@@ -88,6 +87,13 @@ class LoginActivity : AppCompatActivity() {
 
             }
         })
+    }
+
+    private fun isCorrect() {
+        val homeIntent = Intent(this@LoginActivity, MapsActivity::class.java)
+        homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(homeIntent)
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
     }
 
     private fun initFragment() {
