@@ -147,12 +147,14 @@ class NewRegisterActivity : AppCompatActivity() {
                 loginSuccess.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(loginSuccess)
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+                dataCar.child("Type").setValue(getItem.toString())
 
             }
         }
 
     }
 
+     var getItem : Any? = "Honda"
     fun spinnerBrand() {
 
         spinnerBrand.setTextColor(resources.getColor(R.color.colorGreen))
@@ -163,7 +165,7 @@ class NewRegisterActivity : AppCompatActivity() {
         spinnerBrand.setOnItemSelectedListener { view, _, _,
                                                  item ->
             Snackbar.make(view, "Clicked " + item, Snackbar.LENGTH_LONG).show()
-            dataCar.child("Type").setValue(item)
+            getItem = item
 
         }
     }

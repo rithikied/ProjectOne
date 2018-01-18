@@ -19,7 +19,7 @@ class SplashActivity : AppCompatActivity() {
     var dataStatus = baseR.child("User").child("user1").child("STATUS")
 
     var mDelayHandler: Handler? = null
-    val SPLASH_DELAY: Long = 2000
+    val SPLASH_DELAY: Long = 3000
 
     val mRunnable : Runnable = Runnable {
         if (!isFinishing) {
