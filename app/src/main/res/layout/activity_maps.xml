@@ -164,6 +164,19 @@
                 android:text="ปลอดภัย"
                 android:textColor="@color/colorBlueGray"
                 android:textSize="@dimen/textSize" />
+            <ImageView
+                android:id="@+id/imv_status"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_toLeftOf="@+id/tv_status"
+                android:layout_toStartOf="@+id/tv_status"
+                android:layout_alignBottom="@+id/tv_status"
+                android:layout_marginRight="@dimen/dp12"
+                android:layout_marginEnd="@dimen/dp12"
+                android:src="@drawable/ic_circle"
+                android:contentDescription="color_status"
+                android:tint="@color/colorGreenlarm"
+                />
 
         </RelativeLayout>
 

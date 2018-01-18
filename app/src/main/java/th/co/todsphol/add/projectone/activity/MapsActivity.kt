@@ -11,16 +11,15 @@ import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import th.co.todsphol.add.projectone.R
 import android.content.Intent
-import android.graphics.Color
 import android.net.Uri
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
 import android.widget.TextView
 import butterknife.ButterKnife
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.maps.model.Polyline
-import com.google.android.gms.maps.model.PolylineOptions
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -38,6 +37,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
     @BindView(R.id.tv_brand_client) lateinit var brandCar: TextView
     @BindView(R.id.tv_county) lateinit var licencePlate: TextView
     @BindView(R.id.tv_status) lateinit var alarmStatus: TextView
+    @BindView(R.id.imv_status) lateinit var imvStatus : ImageView
     lateinit var mMap: GoogleMap
     private var baseR = FirebaseDatabase.getInstance().reference
     private var dataName = baseR.child("User").child("user1").child("DATA_PERS")
@@ -92,14 +92,17 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         })
     }
 
+
     fun getDataStatus() {
         dataStatus.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val dataStatusAlarm = dataSnapshot.child("Salarm").getValue(Int::class.java)
                 if (dataStatusAlarm == 0) {
                     alarmStatus.text = "ปลอดภัย"
+                    imvStatus.setColorFilter(ContextCompat.getColor(this@MapsActivity, R.color.colorGreenlarm  ))
                 } else {
                     alarmStatus.text = "ไม่ปลอดภัย"
+                    imvStatus.setColorFilter(ContextCompat.getColor(this@MapsActivity, R.color.colorRed))
                 }
             }
 
