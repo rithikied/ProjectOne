@@ -124,9 +124,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
     override fun onMapReady(googleMap: GoogleMap) {
         dataLocation.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val dataLatitude = dataSnapshot.child("latitude").getValue(Double::class.java)
-                val dataLongitude = dataSnapshot.child("Longtitude").getValue(Double::class.java)
-                val testCheck = LatLng(dataLatitude!!, dataLongitude!!)
+                val dataLatitude = dataSnapshot.child("Latitude").getValue(String::class.java)!!.toDouble()
+                val dataLongitude = dataSnapshot.child("Longtitude").getValue(String::class.java)!!.toDouble()
+                val testCheck = LatLng(dataLatitude, dataLongitude)
                 mMap.addMarker(MarkerOptions().position(testCheck).title("Test"))
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(testCheck))
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15.0f))
