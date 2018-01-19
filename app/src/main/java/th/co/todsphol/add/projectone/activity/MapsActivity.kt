@@ -99,7 +99,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
                 val dataStatusAlarm = dataSnapshot.child("Salarm").getValue(Int::class.java)
                 if (dataStatusAlarm == 0) {
                     alarmStatus.text = "ปลอดภัย"
-                    imvStatus.setColorFilter(ContextCompat.getColor(this@MapsActivity, R.color.colorGreenlarm  ))
+                    imvStatus.setColorFilter(ContextCompat.getColor(this@MapsActivity, R.color.colorGreenlearm))
                 } else {
                     alarmStatus.text = "ไม่ปลอดภัย"
                     imvStatus.setColorFilter(ContextCompat.getColor(this@MapsActivity, R.color.colorRed))
