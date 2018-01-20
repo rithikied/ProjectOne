@@ -16,7 +16,7 @@ class LoginSuccessActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_success)
         ButterKnife.bind(this)
-        tvSuccess.setText(intent.getStringExtra(EXTRA_PHONE))
+        tvSuccess.text = intent.getStringExtra(EXTRA_PHONE)
 
     }
 

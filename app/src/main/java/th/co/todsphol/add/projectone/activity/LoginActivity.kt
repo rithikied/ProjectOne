@@ -70,7 +70,9 @@ class LoginActivity : AppCompatActivity() {
                         && edtPassword.text.toString() != regPassword
                 val checkEdtBlank = edtPhone.text.toString() == "" || edtPassword.text.toString() == ""
                 val checkLength = replaceNumber.length < 10 || edtPassword.text.toString().length < 6
-                val admin = replaceNumber == "0123456789" && edtPassword.text.toString() == "123456"
+                val adminNumber = "0123456789"
+                val adminPassword = "123456"
+                val admin = replaceNumber == adminNumber && edtPassword.text.toString() == adminPassword
 
                 when {
                     checkTrue -> isCorrect()
