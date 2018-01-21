@@ -39,7 +39,6 @@ class LoginActivity : AppCompatActivity() {
         edtPhone.addTextChangedListener(PhoneNumberWatcher(edtPhone))
         edtPhone.setText(intent.getStringExtra(EXTRA_PHONE), TextView.BufferType.EDITABLE)
         edtPhone.setSelection(edtPhone.text.length)
-//        Glide.with(this).load(drawable.shoot).crossFade().into(vImageBackground)
 
     }
 
