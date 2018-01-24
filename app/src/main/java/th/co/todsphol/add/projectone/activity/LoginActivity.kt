@@ -32,8 +32,8 @@ class LoginActivity : AppCompatActivity() {
     var dataStatus = baseR.child("User").child("user1").child("STATUS")
 
     companion object {
-        val EXTRA_PHONE = "EXTRA_PHONE"
-        private val TAG = "FirstPageActivity"
+        const val EXTRA_PHONE = "EXTRA_PHONE"
+        private const val TAG = "FirstPageActivity"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

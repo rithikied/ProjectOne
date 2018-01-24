@@ -29,7 +29,7 @@ class LoginSuccessActivity : AppCompatActivity() {
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
     }
     companion object {
-        val EXTRA_PHONE = "EXTRA_PHONE"
+        const val EXTRA_PHONE = "EXTRA_PHONE"
 
     }
 }

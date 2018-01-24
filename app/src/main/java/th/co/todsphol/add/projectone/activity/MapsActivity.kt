@@ -191,7 +191,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
     }
 
     companion object {
-        private val TAG = "LoginActivity"
+        private const val TAG = "LoginActivity"
     }
 
 }
